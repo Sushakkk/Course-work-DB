@@ -189,7 +189,7 @@ void add_f(QSqlDatabase &dbconn, const QStringList &columnNames, const QStringLi
 }
 
 
-void remove_t(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget, const QString &tableName, int row) {
+void remove_t(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget, const QString &tableName, int row, const QStringList &columnNames) {
     if (!dbconn.isOpen()) {
         dbconnect_f(dbconn, teResult);
         if (!dbconn.isOpen()) {
@@ -208,8 +208,10 @@ void remove_t(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidg
 
     QSqlQuery query(dbconn);
 
-    QString id = tableWidget->item(row, 0)->text(); // Предполагаем, что ID находится в первом столбце
-    QString sqlstr = "DELETE FROM " + tableName + " WHERE client_ID = '" + id + "'";
+    QString idColumnName = columnNames.value(0); // Предполагаем, что client_ID находится в первом столбце
+    QString id = tableWidget->item(row, 0)->text(); // Получаем значение ID из таблицы
+
+    QString sqlstr = "DELETE FROM " + tableName + " WHERE " + idColumnName + " = '" + id + "'";
 
     if (!query.exec(sqlstr)) {
         QMessageBox::critical(nullptr, "Error", query.lastError().text());
@@ -282,11 +284,7 @@ void edit_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget
         fieldValues << fieldWidgets[i]->text();
     }
 
-    QString currentId = fieldWidgets[0]->text();
-    if (currentId != tableWidget->item(curRow, 1)->text()) {
-        QMessageBox::critical(nullptr, "Error", "Менять ID нельзя!");
-        return;
-    }
+
 
 
     // Проверяем, изменились ли данные

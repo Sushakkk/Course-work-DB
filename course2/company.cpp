@@ -21,18 +21,13 @@ company::company(QWidget *parent)
     QStringList columnNames = { "ID", "Name", "INN", "Requisites" };
     Table(ui->twOrg, columnNames);
 
-    fieldWidgets = {ui->leID_2, ui->leName_2, ui->leINN_2};
+    fieldWidgets = {ui->leID_2, ui->leName_2, ui->leINN_2, ui->leRec};
 
 
     ////////////////////преобразование типа//////////////////
 
 
-    QLineEdit *lineEdit = dynamic_cast<QLineEdit*>(ui->teReq_2);
-    if (lineEdit) {
-        fieldWidgets.append(lineEdit);
-    } else {
-        qDebug() << "Failed to cast teReq_2 to QLineEdit*";
-    }
+
     ////////////////////////////////////////////////////////////////
 
 }
@@ -58,13 +53,14 @@ void company::selectAll()
 void company::add()
 {
     QStringList values;
-    for (const auto &widget : fieldWidgets) {
-        if (auto lineEdit = qobject_cast<QLineEdit*>(widget)) {
-            values << lineEdit->text();
-        } else if (auto textEdit = qobject_cast<QTextEdit*>(widget)) {
-            values << textEdit->toPlainText();
-        }
+    for (const auto &lineEdit : fieldWidgets) {
+        values << lineEdit->text();
     }
+
+
+    // //отдельное добавление для поля
+    // values << ui->teReq_2->toPlainText();
+
     add_f(dbconn, fieldNames, values, ui->teResult, tableName);
     selectAll();
 
@@ -73,13 +69,15 @@ void company::add()
 
 void company::remove()
 {
-    remove_t(dbconn,ui->teResult, ui->twOrg, tableName, ui->twOrg->currentRow());
+    remove_t(dbconn,ui->teResult, ui->twOrg, tableName, ui->twOrg->currentRow(), fieldNames);
     selectAll();
+    del();
 }
 
 
 
 void company::on_twOrg_itemSelectionChanged() {
+
     on_click_f(ui->twOrg, ui->teResult, fieldNames, fieldWidgets);
 }
 

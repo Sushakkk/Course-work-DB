@@ -63,7 +63,7 @@ void Client::add()
 
 void Client::remove()
 {
-    remove_t(dbconn,ui->teResult, ui->twOrg, tableName, ui->twOrg->currentRow());
+    remove_t(dbconn,ui->teResult, ui->twOrg, tableName, ui->twOrg->currentRow(), fieldNames);
     selectAll();
     del();
 }

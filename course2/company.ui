@@ -101,7 +101,7 @@
      </widget>
     </item>
     <item row="3" column="1" colspan="2">
-     <widget class="QTextEdit" name="teReq_2"/>
+     <widget class="QLineEdit" name="leRec"/>
     </item>
    </layout>
   </widget>

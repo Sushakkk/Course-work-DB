@@ -39,7 +39,7 @@ public:
     QLabel *lbID_2;
     QLabel *lbName_2;
     QPushButton *btnRemove_2;
-    QTextEdit *teReq_2;
+    QLineEdit *leRec;
     QPushButton *btnConnect;
     QTextEdit *teResult;
     QTableWidget *twOrg;
@@ -113,10 +113,10 @@ public:
 
         gridLayout_2->addWidget(btnRemove_2, 4, 3, 1, 1);
 
-        teReq_2 = new QTextEdit(frame);
-        teReq_2->setObjectName("teReq_2");
+        leRec = new QLineEdit(frame);
+        leRec->setObjectName("leRec");
 
-        gridLayout_2->addWidget(teReq_2, 3, 1, 1, 2);
+        gridLayout_2->addWidget(leRec, 3, 1, 1, 2);
 
         btnConnect = new QPushButton(company);
         btnConnect->setObjectName("btnConnect");
