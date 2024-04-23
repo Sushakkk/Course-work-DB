@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>company</class>
+ <widget class="QDialog" name="company">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>823</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>3</x>
+     <y>40</y>
+     <width>471</width>
+     <height>326</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>335</width>
+     <height>326</height>
+    </size>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="2" column="0">
+     <widget class="QLabel" name="lbINN_2">
+      <property name="text">
+       <string>INN</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="lbRequisites_2">
+      <property name="text">
+       <string>Requisites</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QPushButton" name="btnDel_2">
+      <property name="text">
+       <string>Del</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QPushButton" name="btnEdit_2">
+      <property name="text">
+       <string>Edit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1" colspan="2">
+     <widget class="QLineEdit" name="leINN_2"/>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="leID_2"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="btnAdd_2">
+      <property name="text">
+       <string>Add</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" colspan="2">
+     <widget class="QLineEdit" name="leName_2"/>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lbID_2">
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="lbName_2">
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="3">
+     <widget class="QPushButton" name="btnRemove_2">
+      <property name="text">
+       <string>Remove</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1" colspan="2">
+     <widget class="QTextEdit" name="teReq_2"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="btnConnect">
+   <property name="geometry">
+    <rect>
+     <x>3</x>
+     <y>10</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Connect</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="teResult">
+   <property name="geometry">
+    <rect>
+     <x>3</x>
+     <y>372</y>
+     <width>782</width>
+     <height>233</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="twOrg">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>40</y>
+     <width>305</width>
+     <height>326</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnSelectAll">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>10</y>
+     <width>305</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>305</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Select All</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
