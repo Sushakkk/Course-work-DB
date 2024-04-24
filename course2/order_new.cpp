@@ -16,7 +16,7 @@ order_new::order_new(QWidget *parent)
     //connect(ui->btnRemove_2, SIGNAL(clicked(bool)), this, SLOT(remove()));
     connect(ui->btnBack, SIGNAL(clicked(bool)), this, SLOT(back()));
 
-    QTimer::singleShot(0, this, &order_new::selectAll);
+    //QTimer::singleShot(0, this, &order_new::selectAll);
     QStringList columnNames = { "Номер Заказа", "ФИО Клиента", "ФИО Сотрудника", "Оплата", "Сумма заказа", "Дата" };
     Table(ui->twOrg, columnNames);
 

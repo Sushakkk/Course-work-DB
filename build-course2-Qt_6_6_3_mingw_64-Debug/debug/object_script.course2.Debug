@@ -1,5 +1,6 @@
 debug/admin.o
 debug/client.o
+debug/clientorder.o
 debug/company.o
 debug/functions.o
 debug/main.o
@@ -8,6 +9,7 @@ debug/order.o
 debug/order_new.o
 debug/moc_admin.o
 debug/moc_client.o
+debug/moc_clientorder.o
 debug/moc_company.o
 debug/moc_mainwindow.o
 debug/moc_order.o

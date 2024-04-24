@@ -13,6 +13,7 @@ CONFIG += c++17
 SOURCES += \
     admin.cpp \
     client.cpp \
+    clientorder.cpp \
     company.cpp \
     functions.cpp \
     main.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
 HEADERS += \
     admin.h \
     client.h \
+    clientorder.h \
     company.h \
     functions.h \
     mainwindow.h \
@@ -32,6 +34,7 @@ HEADERS += \
 FORMS += \
     admin.ui \
     client.ui \
+    clientorder.ui \
     company.ui \
     mainwindow.ui \
     order.ui \

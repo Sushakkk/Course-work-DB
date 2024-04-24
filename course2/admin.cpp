@@ -4,6 +4,7 @@
 #include "company.h"
 #include "order_new.h"
 #include "order.h"
+#include "clientorder.h"
 
 
 
@@ -40,7 +41,7 @@ void admin::on_btnCompany_clicked()
 
 void admin::on_btnOrder_clicked()
 {
-    order  order_new_W;
+    ClientOrder  order_new_W;
     hide();
     order_new_W.setModal(true);
     order_new_W.exec();

@@ -7,8 +7,10 @@
 #include <QHeaderView>
 #include "admin.h"
 
+#include <QtSql/QSqlRecord>
+#include <QtSql/QSqlField>
 
-
+#include <QDateTime>
 
 
 
@@ -100,6 +102,71 @@ void dbconnect_f(QSqlDatabase &dbconn, QTextEdit *teResult)
     }
 }
 
+// void selectAll_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *twOrg, const QString &tableName, const QStringList &fieldNames)
+// {
+//     dbconnect_f(dbconn, teResult);
+//     if (!dbconn.isOpen())
+//     {
+//         teResult->append("Error: Database connection is not open.");
+//         return;
+//     }
+
+//     QSqlQuery query(dbconn);
+
+//     QString sqlstr = QString("SELECT %1 FROM %2 ORDER BY %3")
+//                          .arg(fieldNames.join(", "))
+//                          .arg(tableName)
+//                          .arg(fieldNames.at(0));
+
+//     if (!query.exec(sqlstr))
+//     {
+//         teResult->append("Error executing query:");
+//         teResult->append(query.lastError().text());
+//         return;
+//     }
+
+//     // Clear table contents
+//     twOrg->clearContents();
+
+//     // Resize table to fit the data
+//     twOrg->setRowCount(0); // Clear rows
+//     twOrg->setColumnCount(fieldNames.size());
+
+//     int i = 0;
+//     while (query.next())
+//     {
+//         //qDebug() << "Строка:" << i;
+//         twOrg->insertRow(i); // Insert new row
+//         for (int j = 0; j < fieldNames.size(); ++j)
+//         {
+//             QString fieldName = fieldNames.at(j);
+//             //qDebug() << "Столбец:" << j << "Поле:" << fieldName;
+//             QTableWidgetItem *item = new QTableWidgetItem(query.value(fieldName).toString());
+//             twOrg->setItem(i, j, item);
+//         }
+
+//         // Установка выравнивания элементов таблицы
+//         for (int j = 0; j < fieldNames.size(); ++j)
+//         {
+//             QTableWidgetItem *item = twOrg->item(i, j);
+//             if (item)
+//                 item->setTextAlignment(Qt::AlignCenter);
+//             // else
+//             //     qDebug() << "Элемент в строке" << i << "и столбце" << j << "равен нулю!";
+//         }
+
+//         i++;
+//     }
+
+//     // Resize columns to fit contents
+//     twOrg->resizeColumnsToContents();
+// }
+
+
+
+
+
+
 void selectAll_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *twOrg, const QString &tableName, const QStringList &fieldNames)
 {
     dbconnect_f(dbconn, teResult);
@@ -133,13 +200,25 @@ void selectAll_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *twOrg,
     int i = 0;
     while (query.next())
     {
-        //qDebug() << "Строка:" << i;
         twOrg->insertRow(i); // Insert new row
         for (int j = 0; j < fieldNames.size(); ++j)
         {
             QString fieldName = fieldNames.at(j);
-            //qDebug() << "Столбец:" << j << "Поле:" << fieldName;
-            QTableWidgetItem *item = new QTableWidgetItem(query.value(fieldName).toString());
+            QTableWidgetItem *item = new QTableWidgetItem();
+            // Check if the field contains the word "total" and is numeric
+            if (fieldName.contains("total", Qt::CaseInsensitive) &&
+                (query.record().field(fieldName).type() == QVariant::Double ||
+                 query.record().field(fieldName).type() == QVariant::Int ||
+                 query.record().field(fieldName).type() == QVariant::LongLong))
+            {
+                // Set numeric data with fixed-point notation
+                item->setText(QString::number(query.value(fieldName).toDouble(), 'f', 2));
+            }
+            else
+            {
+                // Set text data
+                item->setText(query.value(fieldName).toString());
+            }
             twOrg->setItem(i, j, item);
         }
 
@@ -149,8 +228,6 @@ void selectAll_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *twOrg,
             QTableWidgetItem *item = twOrg->item(i, j);
             if (item)
                 item->setTextAlignment(Qt::AlignCenter);
-            // else
-            //     qDebug() << "Элемент в строке" << i << "и столбце" << j << "равен нулю!";
         }
 
         i++;
@@ -159,6 +236,61 @@ void selectAll_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *twOrg,
     // Resize columns to fit contents
     twOrg->resizeColumnsToContents();
 }
+
+
+
+
+
+// void add_f(QSqlDatabase &dbconn, const QStringList &columnNames, const QStringList &values, QTextEdit *teResult, const QString &tableName)
+// {
+//     if (!dbconn.isOpen()) {
+//         dbconnect_f(dbconn, teResult);
+//         if (!dbconn.isOpen()) {
+//             QMessageBox::critical(nullptr, "Error", dbconn.lastError().text());
+//             return;
+//         }
+//     }
+
+//     QSqlQuery countQuery(dbconn);
+//     if (!countQuery.exec(QString("SELECT COUNT(*) FROM %1").arg(tableName))) {
+//         teResult->append(countQuery.lastQuery());
+//         QMessageBox::critical(nullptr, "Error", countQuery.lastError().text());
+//         return;
+//     }
+
+//     countQuery.next();
+//     int rowCount = countQuery.value(0).toInt(); // Получаем количество строк в таблице
+//     int newID = rowCount + 1; // Генерируем новый ID
+
+//     // Заменяем первый параметр (ID) на новый уникальный идентификатор
+//     QStringList modifiedValues = values;
+//     modifiedValues.replace(0, QString::number(newID));
+
+//     QSqlQuery query(dbconn);
+
+//     QString sqlstr = QString("INSERT INTO %1 (%2) VALUES (%3)")
+//                          .arg(tableName)
+//                          .arg(columnNames.join(", "))
+//                          .arg(QStringList(values.size(), "?").join(", "));
+
+//     query.prepare(sqlstr);
+
+//     // Привязываем значения к параметрам запроса
+//     for (int i = 0; i < modifiedValues.size(); ++i) {
+//         query.bindValue(i, modifiedValues.at(i));
+//     }
+
+//     if (!query.exec()) {
+//         teResult->append(query.lastQuery());
+//         QMessageBox::critical(nullptr, "Error", query.lastError().text());
+//         return;
+//     }
+
+//     teResult->append(QString("Added %1 rows").arg(query.numRowsAffected()));
+// }
+
+
+
 
 
 void add_f(QSqlDatabase &dbconn, const QStringList &columnNames, const QStringList &values, QTextEdit *teResult, const QString &tableName)
@@ -186,12 +318,19 @@ void add_f(QSqlDatabase &dbconn, const QStringList &columnNames, const QStringLi
     QStringList modifiedValues = values;
     modifiedValues.replace(0, QString::number(newID));
 
+    // Заменяем значения для полей, содержащих слово "date", на текущее время
+    for (int i = 0; i < columnNames.size(); ++i) {
+        if (columnNames.at(i).contains("date")) {
+            modifiedValues.replace(i, QDateTime::currentDateTime().toString(Qt::ISODate));
+        }
+    }
+
     QSqlQuery query(dbconn);
 
     QString sqlstr = QString("INSERT INTO %1 (%2) VALUES (%3)")
                          .arg(tableName)
                          .arg(columnNames.join(", "))
-                         .arg(QStringList(values.size(), "?").join(", "));
+                         .arg(QStringList(modifiedValues.size(), "?").join(", "));
 
     query.prepare(sqlstr);
 
@@ -208,6 +347,9 @@ void add_f(QSqlDatabase &dbconn, const QStringList &columnNames, const QStringLi
 
     teResult->append(QString("Added %1 rows").arg(query.numRowsAffected()));
 }
+
+
+
 
 
 void remove_t(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget, const QString &tableName, int row, const QStringList &columnNames) {
@@ -284,6 +426,105 @@ void on_click_f(QTableWidget *twOrg, QTextEdit *teResult, const QStringList &fie
 
 
 
+// void edit_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget, const QStringList &columnNames, const QList<QLineEdit*> &fieldWidgets, int curRow, const QString &tableName) {
+//     if (!dbconn.isOpen()) {
+//         dbconnect_f(dbconn, teResult);
+//         if (!dbconn.isOpen()) {
+//             QMessageBox::critical(nullptr, "Error", dbconn.lastError().text());
+//             return;
+//         }
+//     }
+
+//     // Проверяем, выбрана ли строка
+//     if (curRow < 0 || curRow >= tableWidget->rowCount()) {
+//         QMessageBox::critical(nullptr, "Error", "No row selected!");
+//         return;
+//     }
+
+
+//     // Получаем значения полей из виджетов
+//     QStringList fieldValues;
+
+//     for (int i = 0; i < fieldWidgets.size(); ++i) { // Начинаем с 1, чтобы пропустить ID
+//         fieldValues << fieldWidgets[i]->text();
+
+//     }
+
+
+
+//     // Сравниваем значение поля с соответствующим значением в таблице
+//     if (fieldWidgets[0]->text() != tableWidget->item(curRow, 0)->text()) { // Предполагается, что ID находится на первом месте в списке fieldWidgets
+//         QMessageBox::information(nullptr, "Information", "Менять ID нельзя!");
+//         return;
+//     }
+
+
+//     // Проверяем, изменились ли данные
+//     bool dataChanged = false;
+//     for (int i = 0; i < fieldValues.size(); ++i) {
+//         if (fieldValues[i] != tableWidget->item(curRow, i + 1)->text()) { // Сдвигаем индекс на 1 из-за пропуска ID
+//             dataChanged = true;
+//             break;
+//         }
+//     }
+
+//     if (!dataChanged) {
+//         QMessageBox::information(nullptr, "Information", "Данные не изменились.");
+//         return;
+//     }
+
+//     // Предложение подтверждения изменений
+//     QMessageBox::StandardButton reply;
+//     reply = QMessageBox::question(nullptr, "Edit", "Вы уверены, что хотите изменить данные?", QMessageBox::Yes|QMessageBox::No);
+//     if (reply == QMessageBox::No) {
+//         return;
+//     }
+
+
+
+//     QSqlQuery query(dbconn);
+
+//     QString sqlstr = QString("UPDATE %1 SET ").arg(tableName);
+//     for (int i = 1; i < columnNames.size(); ++i) { // Начинаем с 1, чтобы пропустить ID
+//         sqlstr += QString("%1 = ?, ").arg(columnNames[i]);
+//     }
+//     sqlstr.chop(2); // Удаляем последнюю запятую и пробел
+//     sqlstr += QString(" WHERE %1 = ?").arg(columnNames[0]); // Используем ID для фильтрации
+
+//     query.prepare(sqlstr);
+
+//     int paramIndex = 0; // Индекс параметра в запросе
+
+//     // Привязываем значения к параметрам запроса
+//     for (int i = 1; i < fieldValues.size(); ++i) { // Начинаем с 1, чтобы пропустить ID
+//         query.bindValue(paramIndex, fieldValues[i]);
+//         ++paramIndex;
+//     }
+
+//     // Последний параметр (ID)
+//     query.bindValue(paramIndex, fieldValues[0]);
+
+//     if (!query.exec()) {
+//         QMessageBox::critical(nullptr, "Error", query.lastError().text());
+//         return;
+//     }
+
+
+
+
+
+
+
+//     // Выводим сообщение об успешном обновлении данных
+//     teResult->append(QString("Updated %1 rows").arg(query.numRowsAffected()));
+
+// }
+
+
+
+
+
+
 void edit_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget, const QStringList &columnNames, const QList<QLineEdit*> &fieldWidgets, int curRow, const QString &tableName) {
     if (!dbconn.isOpen()) {
         dbconnect_f(dbconn, teResult);
@@ -313,9 +554,8 @@ void edit_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget
     // Сравниваем значение поля с соответствующим значением в таблице
     if (fieldWidgets[0]->text() != tableWidget->item(curRow, 0)->text()) { // Предполагается, что ID находится на первом месте в списке fieldWidgets
         QMessageBox::information(nullptr, "Information", "Менять ID нельзя!");
-        return;
-    }
 
+    }
 
     // Проверяем, изменились ли данные
     bool dataChanged = false;
@@ -338,14 +578,23 @@ void edit_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget
         return;
     }
 
-
-
     QSqlQuery query(dbconn);
 
     QString sqlstr = QString("UPDATE %1 SET ").arg(tableName);
-    for (int i = 1; i < columnNames.size(); ++i) { // Начинаем с 1, чтобы пропустить ID
-        sqlstr += QString("%1 = ?, ").arg(columnNames[i]);
+    QStringList updateValues; // Временный список для значений полей, кроме поля с датой
+
+    for (int i = 1; i < columnNames.size(); ++i) {
+        if (columnNames[i].toLower().contains("date")) {
+            if (fieldValues[i] != tableWidget->item(curRow, i)->text()) {
+                QMessageBox::information(nullptr, "Information", QString("Нельзя изменить Дату!"));
+
+            }
+        } else {
+            sqlstr += QString("%1 = ?, ").arg(columnNames[i]); // Добавляем имя поля в запрос UPDATE
+            updateValues << fieldValues[i]; // Добавляем значение поля во временный список
+        }
     }
+
     sqlstr.chop(2); // Удаляем последнюю запятую и пробел
     sqlstr += QString(" WHERE %1 = ?").arg(columnNames[0]); // Используем ID для фильтрации
 
@@ -354,8 +603,8 @@ void edit_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget
     int paramIndex = 0; // Индекс параметра в запросе
 
     // Привязываем значения к параметрам запроса
-    for (int i = 1; i < fieldValues.size(); ++i) { // Начинаем с 1, чтобы пропустить ID
-        query.bindValue(paramIndex, fieldValues[i]);
+    for (int i = 0; i < updateValues.size(); ++i) {
+        query.bindValue(paramIndex, updateValues[i]);
         ++paramIndex;
     }
 
@@ -367,13 +616,6 @@ void edit_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget
         return;
     }
 
-
-
-
-
-
-
     // Выводим сообщение об успешном обновлении данных
     teResult->append(QString("Updated %1 rows").arg(query.numRowsAffected()));
-
 }

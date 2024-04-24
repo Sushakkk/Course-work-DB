@@ -50,7 +50,7 @@ public:
     {
         if (order_new->objectName().isEmpty())
             order_new->setObjectName("order_new");
-        order_new->resize(1130, 704);
+        order_new->resize(1123, 718);
         gridLayout_2 = new QGridLayout(order_new);
         gridLayout_2->setObjectName("gridLayout_2");
         frame = new QFrame(order_new);

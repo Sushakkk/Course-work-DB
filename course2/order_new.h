@@ -31,8 +31,8 @@ public:
 private:
     Ui::order_new *ui;
     QSqlDatabase dbconn;
-    QString tableName= "ClientOrder";
-    QStringList fieldNames= { "order_number", "client_fio", "employee_fio",  "payment_status",  "order_date" };
+    QString tableName= "ClientOrder_view";
+    QStringList fieldNames= { "order_number", "client_fio", "employee_fio",  "payment_status", "order_total", "order_date" };
     QList<QLineEdit*> fieldWidgets;
 };
 
