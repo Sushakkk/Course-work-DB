@@ -6,160 +6,236 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>823</width>
-    <height>620</height>
+    <width>1077</width>
+    <height>668</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1077</width>
+    <height>668</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QFrame" name="frame">
-   <property name="geometry">
-    <rect>
-     <x>3</x>
-     <y>40</y>
-     <width>471</width>
-     <height>326</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>335</width>
-     <height>326</height>
-    </size>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <layout class="QGridLayout" name="gridLayout_2">
-    <item row="2" column="0">
-     <widget class="QLabel" name="lbINN_2">
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="QFrame" name="frame">
+     <property name="minimumSize">
+      <size>
+       <width>335</width>
+       <height>326</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>492</width>
+       <height>464</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="leID_2"/>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="leINN_2"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lbRequisites_2">
+        <property name="text">
+         <string>Реквизиты</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="leName_2"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lbID_2">
+        <property name="text">
+         <string>ID</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lbINN_2">
+        <property name="text">
+         <string>INN</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lbName_2">
+        <property name="text">
+         <string>Название</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QFrame" name="frame_2">
+        <property name="minimumSize">
+         <size>
+          <width>631</width>
+          <height>81</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>631</width>
+          <height>91</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLineEdit" name="leRec">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>20</y>
+           <width>411</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>408</width>
+           <height>51</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>611</width>
+           <height>51</height>
+          </size>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="1" rowspan="3">
+    <widget class="QTableWidget" name="twOrg">
+     <property name="minimumSize">
+      <size>
+       <width>561</width>
+       <height>561</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QFrame" name="frame_3">
+     <property name="maximumSize">
+      <size>
+       <width>491</width>
+       <height>44</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="btnAdd_2">
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnEdit_2">
+        <property name="text">
+         <string>Edit</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnDel_2">
+        <property name="text">
+         <string>Del</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnRemove_2">
+        <property name="text">
+         <string>Remove</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QFrame" name="frame_4">
+     <property name="minimumSize">
+      <size>
+       <width>351</width>
+       <height>41</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>351</width>
+       <height>41</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="btnBack">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>111</width>
+        <height>24</height>
+       </rect>
+      </property>
       <property name="text">
-       <string>INN</string>
+       <string>Назад </string>
       </property>
      </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="lbRequisites_2">
-      <property name="text">
-       <string>Requisites</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="2">
-     <widget class="QPushButton" name="btnDel_2">
-      <property name="text">
-       <string>Del</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QPushButton" name="btnEdit_2">
-      <property name="text">
-       <string>Edit</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1" colspan="2">
-     <widget class="QLineEdit" name="leINN_2"/>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="leID_2"/>
-    </item>
-    <item row="4" column="0">
-     <widget class="QPushButton" name="btnAdd_2">
-      <property name="text">
-       <string>Add</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1" colspan="2">
-     <widget class="QLineEdit" name="leName_2"/>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="lbID_2">
-      <property name="text">
-       <string>ID</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="lbName_2">
-      <property name="text">
-       <string>Name</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="3">
-     <widget class="QPushButton" name="btnRemove_2">
-      <property name="text">
-       <string>Remove</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1" colspan="2">
-     <widget class="QLineEdit" name="leRec"/>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QPushButton" name="btnConnect">
-   <property name="geometry">
-    <rect>
-     <x>3</x>
-     <y>10</y>
-     <width>75</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Connect</string>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="teResult">
-   <property name="geometry">
-    <rect>
-     <x>3</x>
-     <y>372</y>
-     <width>782</width>
-     <height>233</height>
-    </rect>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QTableWidget" name="twOrg">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>40</y>
-     <width>305</width>
-     <height>326</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnSelectAll">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>10</y>
-     <width>305</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>305</width>
-     <height>0</height>
-    </size>
-   </property>
-   <property name="text">
-    <string>Select All</string>
-   </property>
-  </widget>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QTextEdit" name="teResult">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

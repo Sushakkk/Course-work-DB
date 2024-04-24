@@ -7,6 +7,8 @@
 #include <QSqlDatabase>
 #include <QDebug>
 #include <QLineEdit> // Добавим для работы с QLineEdit
+#include <QLineEdit>
+#include <QTimer>
 
 void dbconnect_f(QSqlDatabase &dbconn, QTextEdit *teResult);
 void selectAll_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *twOrg, const QString &tableName, const QStringList &fieldNames);
@@ -22,6 +24,7 @@ void on_click_f(QTableWidget *twOrg, QTextEdit *teResult, const QStringList &fie
 
 void edit_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget, const QStringList &columnNames, const QList<QLineEdit*> &fieldWidgets, int curRow,  const QString &tableName);
 
+void goto_admin(QWidget *window);
 
 
 

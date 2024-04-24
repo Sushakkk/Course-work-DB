@@ -16,20 +16,26 @@ SOURCES += \
     company.cpp \
     functions.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    order.cpp \
+    order_new.cpp
 
 HEADERS += \
     admin.h \
     client.h \
     company.h \
     functions.h \
-    mainwindow.h
+    mainwindow.h \
+    order.h \
+    order_new.h
 
 FORMS += \
     admin.ui \
     client.ui \
     company.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    order.ui \
+    order_new.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

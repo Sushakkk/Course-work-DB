@@ -28,6 +28,7 @@ private slots:
     void del();
     void on_twOrg_itemSelectionChanged();
 
+    void back();
     void edit();
 
 private:

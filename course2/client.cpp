@@ -13,20 +13,24 @@ Client::Client(QWidget *parent)
 {
     ui->setupUi(this);
 
-    connect(ui->btnSelectAll, SIGNAL(clicked(bool)), this, SLOT(selectAll()));
-    connect(ui->btnConnect, SIGNAL(clicked(bool)), this, SLOT(dbconnect()));
-    connect(ui->btnDel, SIGNAL(clicked(bool)), this, SLOT(del()));
-    connect(ui->btnAdd, SIGNAL(clicked(bool)), this, SLOT(add()));  // Подключаем кнопку добавления
-    connect(ui->btnEdit, SIGNAL(clicked(bool)), this, SLOT(edit()));  // Подключаем кнопку обновления
-    connect(ui->btnRemove, SIGNAL(clicked(bool)), this, SLOT(remove()));
+    // Подключаем сигналы и слоты
+    connect(ui->btnDel_2, SIGNAL(clicked(bool)), this, SLOT(del()));
+    connect(ui->btnAdd_2, SIGNAL(clicked(bool)), this, SLOT(add()));
+    connect(ui->btnEdit_2, SIGNAL(clicked(bool)), this, SLOT(edit()));
+    connect(ui->btnRemove_2, SIGNAL(clicked(bool)), this, SLOT(remove()));
+    connect(ui->btnBack, SIGNAL(clicked(bool)), this, SLOT(back()));
 
     QTimer::singleShot(0, this, &Client::selectAll);
+
+    // Создаем список заголовков столбцов
     QStringList columnNames = { "ID", "ФИО", "Email" };
+
+    // Вызываем функцию для настройки таблицы
     Table(ui->twOrg, columnNames);
 
+    // Создаем список полей ввода для полей таблицы
+    fieldWidgets = {ui->leID_2, ui->leFio_2, ui->leEmail_2};
 
-
-    fieldWidgets = {ui->leID, ui->leFio, ui->leEmail};
 
 }
 
@@ -85,12 +89,18 @@ void Client::del()
 
 void Client::edit()
 {
-
     int curRow = ui->twOrg->currentRow();
+
     edit_f(dbconn, ui->teResult, ui->twOrg, fieldNames, fieldWidgets, curRow, tableName);
+
     selectAll();
     del();
 
+}
+
+void Client::back()
+{
+    goto_admin(this);
 }
 
 

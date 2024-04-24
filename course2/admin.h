@@ -21,6 +21,8 @@ private slots:
 
     void on_btnCompany_clicked();
 
+    void on_btnOrder_clicked();
+
 private:
     Ui::admin *ui;
 };

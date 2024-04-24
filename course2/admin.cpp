@@ -2,6 +2,10 @@
 #include "ui_admin.h"
 #include "client.h"
 #include "company.h"
+#include "order_new.h"
+#include "order.h"
+
+
 
 admin::admin(QWidget *parent)
     : QDialog(parent)
@@ -31,5 +35,14 @@ void admin::on_btnCompany_clicked()
     hide();
     companyW.setModal(true);
     companyW.exec();
+}
+
+
+void admin::on_btnOrder_clicked()
+{
+    order  order_new_W;
+    hide();
+    order_new_W.setModal(true);
+    order_new_W.exec();
 }
 

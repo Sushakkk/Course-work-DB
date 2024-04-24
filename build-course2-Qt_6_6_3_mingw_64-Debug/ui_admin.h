@@ -21,6 +21,7 @@ class Ui_admin
 public:
     QPushButton *btnClient;
     QPushButton *btnCompany;
+    QPushButton *btnOrder;
 
     void setupUi(QDialog *admin)
     {
@@ -33,6 +34,9 @@ public:
         btnCompany = new QPushButton(admin);
         btnCompany->setObjectName("btnCompany");
         btnCompany->setGeometry(QRect(140, 210, 221, 71));
+        btnOrder = new QPushButton(admin);
+        btnOrder->setObjectName("btnOrder");
+        btnOrder->setGeometry(QRect(220, 320, 161, 81));
 
         retranslateUi(admin);
 
@@ -44,6 +48,7 @@ public:
         admin->setWindowTitle(QCoreApplication::translate("admin", "Dialog", nullptr));
         btnClient->setText(QCoreApplication::translate("admin", "\320\232\320\273\320\270\320\265\320\275\321\202\321\213", nullptr));
         btnCompany->setText(QCoreApplication::translate("admin", "\320\232\320\276\320\274\320\277\320\260\320\275\320\270\320\270 ", nullptr));
+        btnOrder->setText(QCoreApplication::translate("admin", "\320\227\320\260\320\272\320\260\320\267\321\213", nullptr));
     } // retranslateUi
 
 };

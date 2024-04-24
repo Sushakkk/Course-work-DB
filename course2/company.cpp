@@ -2,6 +2,9 @@
 #include "ui_company.h"
 #include "functions.h"
 #include <QTimer>
+#include <QScrollArea>
+
+
 
 company::company(QWidget *parent)
     : QDialog(parent)
@@ -10,12 +13,13 @@ company::company(QWidget *parent)
     ui->setupUi(this);
 
 
-    connect(ui->btnSelectAll, SIGNAL(clicked(bool)), this, SLOT(selectAll()));
-    connect(ui->btnConnect, SIGNAL(clicked(bool)), this, SLOT(dbconnect()));
+    //connect(ui->btnSelectAll, SIGNAL(clicked(bool)), this, SLOT(selectAll()));
+    //connect(ui->btnConnect, SIGNAL(clicked(bool)), this, SLOT(dbconnect()));
     connect(ui->btnDel_2, SIGNAL(clicked(bool)), this, SLOT(del()));
     connect(ui->btnAdd_2, SIGNAL(clicked(bool)), this, SLOT(add()));  // Подключаем кнопку добавления
     connect(ui->btnEdit_2, SIGNAL(clicked(bool)), this, SLOT(edit()));  // Подключаем кнопку обновления
     connect(ui->btnRemove_2, SIGNAL(clicked(bool)), this, SLOT(remove()));
+    connect(ui->btnBack, SIGNAL(clicked(bool)), this, SLOT(back()));
 
     QTimer::singleShot(0, this, &company::selectAll);
     QStringList columnNames = { "ID", "Name", "INN", "Requisites" };
@@ -24,11 +28,6 @@ company::company(QWidget *parent)
     fieldWidgets = {ui->leID_2, ui->leName_2, ui->leINN_2, ui->leRec};
 
 
-    ////////////////////преобразование типа//////////////////
-
-
-
-    ////////////////////////////////////////////////////////////////
 
 }
 
@@ -99,10 +98,8 @@ void company::edit()
 }
 
 
-
-
-
-
-
-
+void company::back()
+{
+   goto_admin(this);
+}
 

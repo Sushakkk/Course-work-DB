@@ -39,6 +39,19 @@
     <string>Компании </string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btnOrder">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>320</y>
+     <width>161</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Заказы</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

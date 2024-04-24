@@ -27,6 +27,8 @@ private slots:
     void edit();
     void on_twOrg_itemSelectionChanged();
 
+    void back();
+
 private:
     Ui::company *ui;
     QSqlDatabase dbconn;

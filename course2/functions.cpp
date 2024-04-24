@@ -5,6 +5,8 @@
 #include <QTimer>              // Подключаем заголовочный файл для работы с таймерами
 #include <QDebug>
 #include <QHeaderView>
+#include "admin.h"
+
 
 
 
@@ -22,8 +24,11 @@ void Table(QTableWidget *tableWidget, const QStringList &columnNames){
         tableWidget->setHorizontalHeaderItem(i, new QTableWidgetItem(columnNames.at(i)));
     }
 
-    // Устанавливаем растягивание последнего столбца при изменении размера формы
-    tableWidget->horizontalHeader()->setStretchLastSection(true);
+    // Отключаем растягивание последнего столбца
+    tableWidget->horizontalHeader()->setStretchLastSection(false);
+
+    // Устанавливаем явную ширину последнего столбца
+    tableWidget->horizontalHeader()->resizeSection(columnCount - 1, 300); // Здесь 150 - ваша желаемая ширина столбца
 
     // Включаем возможность прокрутки содержимого таблицы
     tableWidget->setAutoScroll(true);
@@ -39,6 +44,22 @@ void Table(QTableWidget *tableWidget, const QStringList &columnNames){
     // Запрещаем редактирование ячеек таблицы
     tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
+
+
+
+
+
+
+void goto_admin(QWidget *window) {
+    admin adminW;
+    window->hide(); // Скрываем текущее окно
+    adminW.exec();
+}
+
+
+
+
+
 
 void dbconnect_f(QSqlDatabase &dbconn, QTextEdit *teResult)
 {
@@ -278,13 +299,22 @@ void edit_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget
         return;
     }
 
+
     // Получаем значения полей из виджетов
     QStringList fieldValues;
-    for (int i = 1; i < fieldWidgets.size(); ++i) { // Начинаем с 1, чтобы пропустить ID
+
+    for (int i = 0; i < fieldWidgets.size(); ++i) { // Начинаем с 1, чтобы пропустить ID
         fieldValues << fieldWidgets[i]->text();
+
     }
 
 
+
+    // Сравниваем значение поля с соответствующим значением в таблице
+    if (fieldWidgets[0]->text() != tableWidget->item(curRow, 0)->text()) { // Предполагается, что ID находится на первом месте в списке fieldWidgets
+        QMessageBox::information(nullptr, "Information", "Менять ID нельзя!");
+        return;
+    }
 
 
     // Проверяем, изменились ли данные
@@ -312,7 +342,6 @@ void edit_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget
 
     QSqlQuery query(dbconn);
 
-    // Подготовка SQL-запроса для обновления данных
     QString sqlstr = QString("UPDATE %1 SET ").arg(tableName);
     for (int i = 1; i < columnNames.size(); ++i) { // Начинаем с 1, чтобы пропустить ID
         sqlstr += QString("%1 = ?, ").arg(columnNames[i]);
@@ -322,23 +351,29 @@ void edit_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget
 
     query.prepare(sqlstr);
 
+    int paramIndex = 0; // Индекс параметра в запросе
+
     // Привязываем значения к параметрам запроса
-    for (int i = 0; i < fieldValues.size(); ++i) {
-        query.bindValue(i, fieldValues[i]);
+    for (int i = 1; i < fieldValues.size(); ++i) { // Начинаем с 1, чтобы пропустить ID
+        query.bindValue(paramIndex, fieldValues[i]);
+        ++paramIndex;
     }
-    // Привязываем значение ID к последнему параметру
-    query.bindValue(fieldValues.size(), tableWidget->item(curRow, 0)->text()); // Используем ID для фильтрации
+
+    // Последний параметр (ID)
+    query.bindValue(paramIndex, fieldValues[0]);
 
     if (!query.exec()) {
         QMessageBox::critical(nullptr, "Error", query.lastError().text());
         return;
     }
 
-    for (int i = 1; i < fieldValues.size(); ++i) { // Начинаем с 1, чтобы пропустить ID
-        tableWidget->item(curRow, i)->setText(fieldValues[i]);
-    }
+
+
+
+
 
 
     // Выводим сообщение об успешном обновлении данных
     teResult->append(QString("Updated %1 rows").arg(query.numRowsAffected()));
+
 }

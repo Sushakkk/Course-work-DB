@@ -4,7 +4,11 @@ release/company.o
 release/functions.o
 release/main.o
 release/mainwindow.o
+release/order.o
+release/order_new.o
 release/moc_admin.o
 release/moc_client.o
 release/moc_company.o
 release/moc_mainwindow.o
+release/moc_order.o
+release/moc_order_new.o
