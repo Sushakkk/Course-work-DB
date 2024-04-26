@@ -20,10 +20,7 @@ private slots:
 
     void dbconnect();
     void selectAll();
-    // void add();
-    // void remove();
-    // void del();
-    // void edit();
+
     void on_twOrg_itemSelectionChanged();
 
     void back();
@@ -31,9 +28,9 @@ private slots:
 private:
     Ui::ClientOrder *ui;
     QSqlDatabase dbconn;
-    QString tableName= "ClientOrder";
+    QString tableName= "ClientOrder_view";
     QStringList fieldNames= { "order_number", "client_fio", "employee_fio",  "payment_status", "order_total", "order_date" };
-    QList<QLineEdit*> fieldWidgets;
+    QList<QWidget*> fieldWidgets;
 };
 
 #endif

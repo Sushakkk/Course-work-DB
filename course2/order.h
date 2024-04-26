@@ -31,9 +31,11 @@ private slots:
 private:
     Ui::order *ui;
     QSqlDatabase dbconn;
-    QString tableName= "orders";
-    QStringList fieldNames= { "order_number","order_date", "client_id", "emp_id", "order_pay" };
-    QList<QLineEdit*> fieldWidgets;
+    QString tableName= "orders_view";
+    //QStringList fieldNames= { "order_number","order_date", "client_id", "emp_id", "order_pay" };
+    QList<QWidget*> fieldWidgets;
+    QStringList fieldNames= { "order_number","order_date", "client_fio", "emp_fio", "order_pay" };
+
 };
 
 #endif

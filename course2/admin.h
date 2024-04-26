@@ -23,6 +23,10 @@ private slots:
 
     void on_btnOrder_clicked();
 
+    void on_btnRep_ord_new_clicked();
+
+    void on_btnEmp_clicked();
+
 private:
     Ui::admin *ui;
 };

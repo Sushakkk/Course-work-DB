@@ -33,7 +33,7 @@ private:
     QSqlDatabase dbconn;
     QString tableName= "ClientOrder_view";
     QStringList fieldNames= { "order_number", "client_fio", "employee_fio",  "payment_status", "order_total", "order_date" };
-    QList<QLineEdit*> fieldWidgets;
+    QList<QWidget*> fieldWidgets;
 };
 
 #endif // CLIENT_H

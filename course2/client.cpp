@@ -1,9 +1,8 @@
 #include "client.h"
 #include "ui_client.h"
 #include "functions.h" // Подключаем заголовочный файл с функциями
+#include "fucn.h"
 
-
-#include <QTimer>              // Подключаем заголовочный файл для работы с таймерами
 
 
 
@@ -31,6 +30,9 @@ Client::Client(QWidget *parent)
     // Создаем список полей ввода для полей таблицы
     fieldWidgets = {ui->leID_2, ui->leFio_2, ui->leEmail_2};
 
+    ui->leID_2->setPlaceholderText("Автоматически");
+
+
 
 }
 
@@ -55,11 +57,8 @@ void Client::selectAll()
 
 void Client::add()
 {
-    QStringList values;
-    for (const auto &lineEdit : fieldWidgets) {
-        values << lineEdit->text();
-    }
-    add_f(dbconn, fieldNames, values, ui->teResult, tableName);
+
+    add_f(dbconn, fieldNames, fieldWidgets, ui->teResult, tableName);
     selectAll();
 
 }

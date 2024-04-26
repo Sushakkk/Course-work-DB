@@ -36,7 +36,7 @@ private:
     QSqlDatabase dbconn;
     QString tableName= "client";
     QStringList fieldNames= { "client_ID", "client_fio", "cl_contact_inf" };
-    QList<QLineEdit*> fieldWidgets;
+    QList<QWidget*> fieldWidgets;
 };
 
 #endif // CLIENT_H

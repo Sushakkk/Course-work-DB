@@ -1,6 +1,8 @@
 #include "order.h"
 #include "ui_order.h"
 #include "functions.h"
+#include "fucn.h"
+
 
 order::order(QWidget *parent)
     : QDialog(parent)
@@ -19,7 +21,26 @@ order::order(QWidget *parent)
     QStringList columnNames = { "Номер Заказа", "Дата","ID Клиента", "ID Сотрудника", "Оплата"};
     Table(ui->twOrg, columnNames);
 
-    fieldWidgets = {ui->leOrder_number, ui->leDate_2, ui->leId_client, ui->leId_emp, ui->lePay};
+
+
+    fieldWidgets = {ui->leOrder_number, ui->leDate_2, ui->cbFio_client, ui->cbFio_emp, ui->cBpay};
+    ui->leOrder_number->setPlaceholderText("Автоматически");
+    ui->leDate_2->setPlaceholderText("Автоматически");
+
+
+    ///////////////////////////////////////////////
+    QString table = "client";
+    QPair<QString, QString> columns("client_id", "client_fio");
+    insert_ComboBoxFro(ui->teResult, dbconn, ui->cbFio_client, table, columns,1);
+
+    ///////////////////////////////////////////////
+    table = "employee";
+    columns = QPair<QString, QString>("emp_id", "emp_fio");
+    insert_ComboBoxFro(ui->teResult, dbconn, ui->cbFio_emp, table, columns,1);
+    /////////////////////////////////////////////////
+
+
+
 
 
 }
@@ -41,6 +62,7 @@ void order::dbconnect()
 void order::selectAll()
 {
     selectAll_f(dbconn, ui->teResult, ui->twOrg, tableName, fieldNames);
+    del();
 }
 
 
@@ -59,16 +81,8 @@ void order::on_twOrg_itemSelectionChanged() {
 
 void order::add()
 {
-    QStringList values;
-    for (const auto &lineEdit : fieldWidgets) {
-        values << lineEdit->text();
-    }
 
-
-    // //отдельное добавление для поля
-    // values << ui->teReq_2->toPlainText();
-
-    add_f(dbconn, fieldNames, values, ui->teResult, tableName);
+    add_f(dbconn, fieldNames, fieldWidgets, ui->teResult, tableName);
     selectAll();
 
 }
@@ -80,9 +94,6 @@ void order::remove()
     selectAll();
     del();
 }
-
-
-
 
 
 

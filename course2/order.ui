@@ -6,26 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1163</width>
-    <height>741</height>
+    <width>1396</width>
+    <height>810</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
+  <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QFrame" name="frame">
      <property name="minimumSize">
       <size>
-       <width>335</width>
-       <height>326</height>
+       <width>571</width>
+       <height>411</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>492</width>
-       <height>464</height>
+       <width>571</width>
+       <height>411</height>
       </size>
      </property>
      <property name="frameShape">
@@ -34,68 +34,139 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QLabel" name="lbID_2">
-        <property name="text">
-         <string>Номер заказа </string>
-        </property>
-       </widget>
+     <widget class="QLabel" name="lbID_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>61</y>
+        <width>78</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Номер заказа </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>140</y>
+        <width>64</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Дата Заказа</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lbName_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>219</y>
+        <width>78</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string> ФИО Клиента</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lbINN_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>298</y>
+        <width>95</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ФИО Сотрудника</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>377</y>
+        <width>40</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Оплата</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cBpay">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>377</y>
+        <width>50</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>51</width>
+        <height>22</height>
+       </size>
+      </property>
+      <item>
+       <property name="text">
+        <string>true</string>
+       </property>
       </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="leOrder_number"/>
+      <item>
+       <property name="text">
+        <string>false</string>
+       </property>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Дата Заказа</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="leDate_2"/>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="lbName_2">
-        <property name="text">
-         <string> ID Клиента</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="leId_client"/>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="lbINN_2">
-        <property name="text">
-         <string>ID Сотрудника</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QLineEdit" name="leId_emp"/>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Оплата</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QLineEdit" name="lePay"/>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="0" column="1" rowspan="3">
-    <widget class="QTableWidget" name="twOrg">
-     <property name="minimumSize">
-      <size>
-       <width>561</width>
-       <height>561</height>
-      </size>
-     </property>
+     </widget>
+     <widget class="QFrame" name="frame_5">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>0</y>
+        <width>441</width>
+        <height>371</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>441</width>
+        <height>371</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>441</width>
+        <height>371</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLineEdit" name="leOrder_number"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="leDate_2"/>
+       </item>
+       <item>
+        <widget class="QComboBox" name="cbFio_client"/>
+       </item>
+       <item>
+        <widget class="QComboBox" name="cbFio_emp"/>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
    <item row="1" column="0">
@@ -187,8 +258,24 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>121</height>
+      </size>
+     </property>
      <property name="readOnly">
       <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" rowspan="3">
+    <widget class="QTableWidget" name="twOrg">
+     <property name="minimumSize">
+      <size>
+       <width>871</width>
+       <height>561</height>
+      </size>
      </property>
     </widget>
    </item>

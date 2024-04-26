@@ -22,6 +22,15 @@ order_new::order_new(QWidget *parent)
 
     fieldWidgets = {ui->leOrder_number, ui->leFio_client, ui->leIFio_Emp, ui->lePay, ui->leSum, ui->leDate};
 
+    for (auto widget : fieldWidgets) {
+        if (auto lineEdit = qobject_cast<QLineEdit*>(widget)) {
+            lineEdit->setReadOnly(false);
+        } else if (auto comboBox = qobject_cast<QComboBox*>(widget)) {
+            comboBox->setEnabled(false); // или comboBox->setEditable(false), если хотите, чтобы он был только для чтения
+        }
+    }
+
+
 
 
 }
@@ -55,24 +64,16 @@ void order_new::on_twOrg_itemSelectionChanged() {
     on_click_f(ui->twOrg, ui->teResult, fieldNames, fieldWidgets);
 }
 
-// void company::add()
+// void order_new::add()
 // {
-//     QStringList values;
-//     for (const auto &lineEdit : fieldWidgets) {
-//         values << lineEdit->text();
-//     }
 
-
-//     // //отдельное добавление для поля
-//     // values << ui->teReq_2->toPlainText();
-
-//     add_f(dbconn, fieldNames, values, ui->teResult, tableName);
+//     add_f(dbconn, fieldNames, fieldWidgets, ui->teResult, tableName);
 //     selectAll();
 
 // }
 
 
-// void company::remove()
+// void order_new::remove()
 // {
 //     remove_t(dbconn,ui->teResult, ui->twOrg, tableName, ui->twOrg->currentRow(), fieldNames);
 //     selectAll();
@@ -81,16 +82,13 @@ void order_new::on_twOrg_itemSelectionChanged() {
 
 
 
-
-
-
-// void company::del()
+// void order_new::del()
 // {
 //     del_f(fieldWidgets);
 // }
 
 
-// void company::edit()
+// void order_new::edit()
 // {
 
 //     int curRow = ui->twOrg->currentRow();

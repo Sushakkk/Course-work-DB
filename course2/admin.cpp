@@ -5,7 +5,7 @@
 #include "order_new.h"
 #include "order.h"
 #include "clientorder.h"
-
+#include "employee.h"
 
 
 admin::admin(QWidget *parent)
@@ -41,9 +41,27 @@ void admin::on_btnCompany_clicked()
 
 void admin::on_btnOrder_clicked()
 {
-    ClientOrder  order_new_W;
+    order order;
     hide();
-    order_new_W.setModal(true);
-    order_new_W.exec();
+    order.setModal(true);
+    order.exec();
+}
+
+
+void admin::on_btnRep_ord_new_clicked()
+{
+    ClientOrder client_order;
+    hide();
+    client_order.setModal(true);
+    client_order.exec();
+}
+
+
+void admin::on_btnEmp_clicked()
+{
+    employee employeeW;
+    hide();
+    employeeW.setModal(true);
+    employeeW.exec();
 }
 

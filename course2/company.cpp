@@ -13,8 +13,7 @@ company::company(QWidget *parent)
     ui->setupUi(this);
 
 
-    //connect(ui->btnSelectAll, SIGNAL(clicked(bool)), this, SLOT(selectAll()));
-    //connect(ui->btnConnect, SIGNAL(clicked(bool)), this, SLOT(dbconnect()));
+
     connect(ui->btnDel_2, SIGNAL(clicked(bool)), this, SLOT(del()));
     connect(ui->btnAdd_2, SIGNAL(clicked(bool)), this, SLOT(add()));  // Подключаем кнопку добавления
     connect(ui->btnEdit_2, SIGNAL(clicked(bool)), this, SLOT(edit()));  // Подключаем кнопку обновления
@@ -26,6 +25,7 @@ company::company(QWidget *parent)
     Table(ui->twOrg, columnNames);
 
     fieldWidgets = {ui->leID_2, ui->leName_2, ui->leINN_2, ui->leRec};
+    ui->leID_2->setPlaceholderText("Автоматически");
 
 
 
@@ -51,16 +51,8 @@ void company::selectAll()
 
 void company::add()
 {
-    QStringList values;
-    for (const auto &lineEdit : fieldWidgets) {
-        values << lineEdit->text();
-    }
 
-
-    // //отдельное добавление для поля
-    // values << ui->teReq_2->toPlainText();
-
-    add_f(dbconn, fieldNames, values, ui->teResult, tableName);
+    add_f(dbconn, fieldNames, fieldWidgets, ui->teResult, tableName);
     selectAll();
 
 }
