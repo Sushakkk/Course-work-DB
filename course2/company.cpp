@@ -6,11 +6,12 @@
 
 
 
-company::company(QWidget *parent)
+company::company(QWidget *parent, const QString &user)
     : QDialog(parent)
     , ui(new Ui::company)
 {
     ui->setupUi(this);
+    current_user = user;
 
 
 
@@ -21,7 +22,7 @@ company::company(QWidget *parent)
     connect(ui->btnBack, SIGNAL(clicked(bool)), this, SLOT(back()));
 
     QTimer::singleShot(0, this, &company::selectAll);
-    QStringList columnNames = { "ID", "Name", "INN", "Requisites" };
+    QStringList columnNames = { "ID", "Название Компании", "ИНН", "Реквизиты" };
     Table(ui->twOrg, columnNames);
 
     fieldWidgets = {ui->leID_2, ui->leName_2, ui->leINN_2, ui->leRec};

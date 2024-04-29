@@ -1,15 +1,6 @@
 #include "admin.h"
 #include "ui_admin.h"
-#include "client.h"
-#include "company.h"
-#include "order_new.h"
-#include "order.h"
-#include "clientorder.h"
-#include "employee.h"
-#include "stock.h"
-#include "order_new.h"
-
-#include "order_product.h"
+#include "mainwindow.h"
 
 admin::admin(QWidget *parent)
     : QDialog(parent)
@@ -85,5 +76,14 @@ void admin::on_btnOrder_clicked()
     hide();
     orderW.setModal(true);
     orderW.exec();
+}
+
+
+void admin::on_btnAuthorization_clicked()
+{
+    Authorization autW;
+    hide();
+    autW.setModal(true);
+    autW.exec();
 }
 

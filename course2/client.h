@@ -16,7 +16,7 @@ class Client : public QDialog
     Q_OBJECT
 
 public:
-    explicit Client(QWidget *parent = nullptr);
+    explicit Client(QWidget *parent = nullptr, const QString &user = "", bool report=true);
     ~Client();
 
 private slots:
@@ -31,12 +31,16 @@ private slots:
     void back();
     void edit();
 
+    void on_btnReport_clicked();
+
 private:
     Ui::Client *ui;
     QSqlDatabase dbconn;
     QString tableName= "client";
     QStringList fieldNames= { "client_ID", "client_fio", "cl_contact_inf" };
     QList<QWidget*> fieldWidgets;
+    QString current_user;
+
 };
 
 #endif // CLIENT_H

@@ -6,11 +6,12 @@
 
 
 
-employee::employee(QWidget *parent)
+employee::employee(QWidget *parent, const QString &user)
     : QDialog(parent)
     , ui(new Ui::employee)
 {
     ui->setupUi(this);
+    current_user = user;
 
 
 

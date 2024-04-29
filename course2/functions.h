@@ -27,6 +27,8 @@ void remove_t(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidg
 // void edit_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget, const QStringList &columnNames, const QList<QLineEdit*> &fieldWidgets, int curRow,  const QString &tableName);
 
 void goto_admin(QWidget *window);
+void goto_sales_manager(QWidget *window);
+void back_f(QWidget *window, const QString &user);
 
 
 void on_click_f(QTableWidget *twOrg, QTextEdit *teResult, const QStringList &fieldNames, const QList<QWidget*> &fieldWidgets);

@@ -1,18 +1,22 @@
 #include "order.h"
 #include "ui_order.h"
 #include "functions.h"
-#include "fucn.h"
 #include "order_product.h"
-
+#include "clientorder.h"
 
 #include <QSqlQuery>
 
 
-order::order(QWidget *parent)
+order::order(QWidget *parent, const QString &user)
     : QDialog(parent)
     , ui(new Ui::order)
 {
     ui->setupUi(this);
+
+    current_user = user;
+    if(current_user!="Менеджер по продажам"){
+        ui->btnReport_order->hide();
+    }
 
 
     connect(ui->btnDel_2, SIGNAL(clicked(bool)), this, SLOT(del()));
@@ -75,7 +79,7 @@ void order::selectAll()
 
 void order::back()
 {
-    goto_admin(this);
+    back_f(this,current_user);
 }
 
 
@@ -137,3 +141,12 @@ void order::edit()
     del();
 
 }
+
+void order::on_btnReport_order_clicked()
+{
+    ClientOrder orderW(nullptr, current_user);
+    hide();
+    orderW.setModal(true);
+    orderW.exec();
+}
+

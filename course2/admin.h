@@ -14,6 +14,7 @@ class admin : public QDialog
 
 public:
     explicit admin(QWidget *parent = nullptr);
+
     ~admin();
 
 private slots:
@@ -30,6 +31,8 @@ private slots:
     void on_btnStock_clicked();
 
     void on_btnOrder_product_clicked();
+
+    void on_btnAuthorization_clicked();
 
 private:
     Ui::admin *ui;

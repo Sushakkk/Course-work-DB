@@ -14,7 +14,7 @@ class employee : public QDialog
     Q_OBJECT
 
 public:
-    explicit employee(QWidget *parent = nullptr);
+    explicit employee(QWidget *parent = nullptr, const QString &user = "");
     ~employee();
 
 private slots:
@@ -35,6 +35,7 @@ private:
     QString tableName = "Employee_view";
     QStringList fieldNames= { "emp_ID","emp_fio", "company_name" };
     QList<QWidget*> fieldWidgets;
+    QString current_user;
 };
 
 #endif // EMPLOYEE_H

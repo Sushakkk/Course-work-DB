@@ -7,11 +7,12 @@
 
 
 
-stock::stock(QWidget *parent)
+stock::stock(QWidget *parent, const QString &user)
     : QDialog(parent)
     , ui(new Ui::stock)
 {
     ui->setupUi(this);
+    current_user = user;
 
 
 

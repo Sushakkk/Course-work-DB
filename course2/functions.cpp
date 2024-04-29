@@ -6,7 +6,7 @@
 #include <QDebug>
 #include <QHeaderView>
 #include "admin.h"
-
+#include "sales_manager.h"
 #include <QtSql/QSqlRecord>
 #include <QtSql/QSqlField>
 
@@ -108,7 +108,15 @@ void insert_ComboBoxFro(QTextEdit *teResult, QSqlDatabase &dbconn, QComboBox *co
     }
 }
 
+void back_f(QWidget *window, const QString &user) {
+    if(user=="Менеджер по продажам"){
+        goto_sales_manager(window);
+    }
+    else{
+        goto_admin(window);
+    }
 
+}
 
 void goto_admin(QWidget *window) {
     admin adminW;
@@ -116,7 +124,11 @@ void goto_admin(QWidget *window) {
     adminW.exec();
 }
 
-
+void goto_sales_manager(QWidget *window) {
+    Sales_Manager adminW;
+    window->hide();
+    adminW.exec();
+}
 
 void dbconnect_f(QSqlDatabase &dbconn, QTextEdit *teResult)
 {

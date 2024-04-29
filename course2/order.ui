@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1396</width>
+    <width>1466</width>
     <height>810</height>
    </rect>
   </property>
@@ -169,42 +169,17 @@
      </widget>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QFrame" name="frame_4">
+   <item row="0" column="1" rowspan="3">
+    <widget class="QTableWidget" name="twOrg">
      <property name="minimumSize">
       <size>
-       <width>351</width>
-       <height>41</height>
+       <width>871</width>
+       <height>561</height>
       </size>
      </property>
-     <property name="maximumSize">
-      <size>
-       <width>351</width>
-       <height>41</height>
-      </size>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QPushButton" name="btnBack">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>111</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Назад </string>
-      </property>
-     </widget>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="1" column="0">
     <widget class="QFrame" name="frame_3">
      <property name="maximumSize">
       <size>
@@ -247,7 +222,49 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="btnReport_order">
+        <property name="text">
+         <string>Отчет о заказах</string>
+        </property>
+       </widget>
+      </item>
      </layout>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QFrame" name="frame_4">
+     <property name="minimumSize">
+      <size>
+       <width>351</width>
+       <height>41</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>351</width>
+       <height>41</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="btnBack">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>111</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Назад </string>
+      </property>
+     </widget>
     </widget>
    </item>
    <item row="3" column="0" colspan="2">
@@ -266,16 +283,6 @@
      </property>
      <property name="readOnly">
       <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1" rowspan="3">
-    <widget class="QTableWidget" name="twOrg">
-     <property name="minimumSize">
-      <size>
-       <width>871</width>
-       <height>561</height>
-      </size>
      </property>
     </widget>
    </item>

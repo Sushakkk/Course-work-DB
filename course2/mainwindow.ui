@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>459</width>
-    <height>364</height>
+    <height>358</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>80</y>
-      <width>331</width>
-      <height>221</height>
+      <y>100</y>
+      <width>321</width>
+      <height>171</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -30,18 +30,15 @@
      <enum>QFrame::Raised</enum>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="2" column="1">
-      <widget class="QPushButton" name="btnEntry">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
        <property name="text">
-        <string>Вход</string>
+        <string>Логин</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="leLogin"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="lePass"/>
+      <widget class="QComboBox" name="cbLogin"/>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
@@ -50,10 +47,13 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lePass"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QPushButton" name="btnEntry">
        <property name="text">
-        <string>Логин</string>
+        <string>Вход</string>
        </property>
       </widget>
      </item>
@@ -62,11 +62,14 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>160</x>
       <y>50</y>
-      <width>81</width>
-      <height>21</height>
+      <width>151</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
      <string>Регистрация</string>

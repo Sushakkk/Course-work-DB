@@ -4,11 +4,12 @@
 #include "functions.h"
 
 
-ClientOrder::ClientOrder(QWidget *parent)
+ClientOrder::ClientOrder(QWidget *parent, const QString &user)
     : QDialog(parent)
     , ui(new Ui::ClientOrder)
 {
     ui->setupUi(this);
+    current_user = user;
 
 
     connect(ui->btnBack, SIGNAL(clicked(bool)), this, SLOT(back()));
@@ -54,7 +55,12 @@ void ClientOrder::selectAll()
 
 void ClientOrder::back()
 {
-    goto_admin(this);
+    if(current_user=="Менеджер по продажам"){
+        goto_sales_manager(this);
+    }
+    else{
+        goto_admin(this);
+    }
 }
 
 

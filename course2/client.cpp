@@ -1,16 +1,19 @@
 #include "client.h"
 #include "ui_client.h"
-#include "functions.h" // Подключаем заголовочный файл с функциями
-#include "fucn.h"
+#include "functions.h"
+#include "mainwindow.h"
+#include <QSqlQuery> // Импортируем необходимые заголовочные файлы
 
-
-
-
-Client::Client(QWidget *parent)
+Client::Client(QWidget *parent, const QString &user, bool report)
     : QDialog(parent)
     , ui(new Ui::Client)
 {
     ui->setupUi(this);
+    current_user = user;
+    if(current_user!="Менеджер по продажам"){
+        ui->btnReport->hide();
+    }
+
 
     // Подключаем сигналы и слоты
     connect(ui->btnDel_2, SIGNAL(clicked(bool)), this, SLOT(del()));
@@ -32,9 +35,38 @@ Client::Client(QWidget *parent)
 
     ui->leID_2->setPlaceholderText("Автоматически");
 
+    if (report==false){
+        for (auto widget : fieldWidgets) {
+            if (auto lineEdit = qobject_cast<QLineEdit*>(widget)) {
+                lineEdit->setReadOnly(true);
+            } else if (auto comboBox = qobject_cast<QComboBox*>(widget)) {
+                comboBox->setEnabled(true); // или comboBox->setEditable(false), если хотите, чтобы он был только для чтения
+            }
+        }
 
+        ui->frame_Buttons->hide();
+        ui->frame_title_Form->hide();
 
+        // Переместите объявление countQuery сюда
+        QSqlQuery countQuery(dbconn); // Затем создаем объект QSqlQuery
+
+        if (!countQuery.exec(QString("SELECT COUNT(*) FROM %1").arg(tableName))) {
+            return;
+        }
+
+        countQuery.next();
+        int rowCount = countQuery.value(0).toInt(); // Получаем количество строк в таблице
+
+        ui->lbSum_client->setText(QString::number(rowCount)); // Устанавливаем количество строк в QLabel
+        ui->lbSum_client->setEnabled(true);
+    }
+    else{
+        //для основной формы
+        ui->frame_title_Report->hide();
+        ui->Full_Client->hide();
+    }
 }
+
 
 Client::~Client()
 {
@@ -52,6 +84,7 @@ void Client::dbconnect()
 void Client::selectAll()
 {
     selectAll_f(dbconn, ui->teResult, ui->twOrg, tableName, fieldNames);
+
 }
 
 
@@ -99,8 +132,18 @@ void Client::edit()
 
 void Client::back()
 {
-    goto_admin(this);
+   back_f(this,current_user);
 }
 
 
+
+
+void Client::on_btnReport_clicked()
+{
+
+    Client orderW(nullptr, current_user, false);
+    hide();
+    orderW.setModal(true);
+    orderW.exec();
+}
 

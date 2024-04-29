@@ -38,6 +38,7 @@ private:
     QStringList fieldNames= { "or_pr","order_number","pr_name","pr_quantity" };
     QList<QWidget*> fieldWidgets;
     bool flag_for_order =false;
+    QString current_user;
 };
 
 #endif

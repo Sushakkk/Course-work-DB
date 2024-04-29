@@ -15,7 +15,7 @@ class stock : public QDialog
     Q_OBJECT
 
 public:
-    explicit stock(QWidget *parent = nullptr);
+    explicit stock(QWidget *parent = nullptr, const QString &user = "");
     ~stock();
 private slots:
 
@@ -35,6 +35,7 @@ private:
     QString tableName= "stock";
     QStringList fieldNames= { "stock_ID","stock_address" };
     QList<QWidget*> fieldWidgets;
+    QString current_user;
 };
 
 #endif // COMPANY_H
