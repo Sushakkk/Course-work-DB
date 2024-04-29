@@ -2,6 +2,10 @@
 #include "ui_order.h"
 #include "functions.h"
 #include "fucn.h"
+#include "order_product.h"
+
+
+#include <QSqlQuery>
 
 
 order::order(QWidget *parent)
@@ -38,6 +42,9 @@ order::order(QWidget *parent)
     columns = QPair<QString, QString>("emp_id", "emp_fio");
     insert_ComboBoxFro(ui->teResult, dbconn, ui->cbFio_emp, table, columns,1);
     /////////////////////////////////////////////////
+
+   // ui->btnDel_2->setVisible(false);
+
 
 
 
@@ -85,6 +92,24 @@ void order::add()
     add_f(dbconn, fieldNames, fieldWidgets, ui->teResult, tableName);
     selectAll();
 
+
+    QSqlQuery countQuery(dbconn);
+    if (!countQuery.exec(QString("SELECT COUNT(*) FROM %1").arg(tableName))) {
+        //teResult->append(countQuery.lastQuery());
+        //QMessageBox::critical(nullptr, "Error", countQuery.lastError().text());
+        return;
+    }
+
+    countQuery.next();
+    int rowCount = countQuery.value(0).toInt(); // Получаем количество строк в таблице
+    currentId = QString::number(rowCount); // Преобразуем в строку
+
+
+
+    order_product order_productW(nullptr, currentId);
+    hide();
+    order_productW.setModal(true);
+    order_productW.exec();
 }
 
 
@@ -112,6 +137,3 @@ void order::edit()
     del();
 
 }
-
-
-

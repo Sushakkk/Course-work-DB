@@ -43,18 +43,22 @@ constexpr auto qt_meta_stringdata_CLASSorder_newENDCLASS = QtMocHelpers::stringD
     "dbconnect",
     "",
     "selectAll",
+    "edit",
     "on_twOrg_itemSelectionChanged",
+    "remove",
     "back"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSorder_newENDCLASS_t {
-    uint offsetsAndSizes[12];
+    uint offsetsAndSizes[16];
     char stringdata0[10];
     char stringdata1[10];
     char stringdata2[1];
     char stringdata3[10];
-    char stringdata4[30];
-    char stringdata5[5];
+    char stringdata4[5];
+    char stringdata5[30];
+    char stringdata6[7];
+    char stringdata7[5];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSorder_newENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -64,14 +68,18 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSorder_newENDCLASS_t qt_meta_str
         QT_MOC_LITERAL(10, 9),  // "dbconnect"
         QT_MOC_LITERAL(20, 0),  // ""
         QT_MOC_LITERAL(21, 9),  // "selectAll"
-        QT_MOC_LITERAL(31, 29),  // "on_twOrg_itemSelectionChanged"
-        QT_MOC_LITERAL(61, 4)   // "back"
+        QT_MOC_LITERAL(31, 4),  // "edit"
+        QT_MOC_LITERAL(36, 29),  // "on_twOrg_itemSelectionChanged"
+        QT_MOC_LITERAL(66, 6),  // "remove"
+        QT_MOC_LITERAL(73, 4)   // "back"
     },
     "order_new",
     "dbconnect",
     "",
     "selectAll",
+    "edit",
     "on_twOrg_itemSelectionChanged",
+    "remove",
     "back"
 };
 #undef QT_MOC_LITERAL
@@ -84,7 +92,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSorder_newENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -92,12 +100,16 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSorder_newENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x08,    1 /* Private */,
-       3,    0,   39,    2, 0x08,    2 /* Private */,
-       4,    0,   40,    2, 0x08,    3 /* Private */,
-       5,    0,   41,    2, 0x08,    4 /* Private */,
+       1,    0,   50,    2, 0x08,    1 /* Private */,
+       3,    0,   51,    2, 0x08,    2 /* Private */,
+       4,    0,   52,    2, 0x08,    3 /* Private */,
+       5,    0,   53,    2, 0x08,    4 /* Private */,
+       6,    0,   54,    2, 0x08,    5 /* Private */,
+       7,    0,   55,    2, 0x08,    6 /* Private */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -119,7 +131,11 @@ Q_CONSTINIT const QMetaObject order_new::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'selectAll'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'edit'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_twOrg_itemSelectionChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'remove'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'back'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
@@ -135,8 +151,10 @@ void order_new::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         switch (_id) {
         case 0: _t->dbconnect(); break;
         case 1: _t->selectAll(); break;
-        case 2: _t->on_twOrg_itemSelectionChanged(); break;
-        case 3: _t->back(); break;
+        case 2: _t->edit(); break;
+        case 3: _t->on_twOrg_itemSelectionChanged(); break;
+        case 4: _t->remove(); break;
+        case 5: _t->back(); break;
         default: ;
         }
     }
@@ -162,13 +180,13 @@ int order_new::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 6;
     }
     return _id;
 }

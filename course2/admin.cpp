@@ -6,7 +6,10 @@
 #include "order.h"
 #include "clientorder.h"
 #include "employee.h"
+#include "stock.h"
+#include "order_new.h"
 
+#include "order_product.h"
 
 admin::admin(QWidget *parent)
     : QDialog(parent)
@@ -39,14 +42,6 @@ void admin::on_btnCompany_clicked()
 }
 
 
-void admin::on_btnOrder_clicked()
-{
-    order order;
-    hide();
-    order.setModal(true);
-    order.exec();
-}
-
 
 void admin::on_btnRep_ord_new_clicked()
 {
@@ -63,5 +58,32 @@ void admin::on_btnEmp_clicked()
     hide();
     employeeW.setModal(true);
     employeeW.exec();
+}
+
+
+void admin::on_btnStock_clicked()
+{
+    stock stockW;
+    hide();
+    stockW.setModal(true);
+    stockW.exec();
+}
+
+
+void admin::on_btnOrder_product_clicked()
+{
+    order_product order_productW;
+    hide();
+    order_productW.setModal(true);
+    order_productW.exec();
+}
+
+
+void admin::on_btnOrder_clicked()
+{
+    order orderW;
+    hide();
+    orderW.setModal(true);
+    orderW.exec();
 }
 

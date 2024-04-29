@@ -29,7 +29,7 @@ private:
     Ui::ClientOrder *ui;
     QSqlDatabase dbconn;
     QString tableName= "ClientOrder_view";
-    QStringList fieldNames= { "order_number", "client_fio", "employee_fio",  "payment_status", "order_total", "order_date" };
+    QStringList fieldNames= { "order_number","order_date", "client_fio",  "pay_status", "sum_order" };
     QList<QWidget*> fieldWidgets;
 };
 

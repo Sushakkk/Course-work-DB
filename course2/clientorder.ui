@@ -42,7 +42,20 @@
         </property>
        </widget>
       </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="leOrder_number"/>
+      </item>
       <item row="1" column="0">
+       <widget class="QLabel" name="lbDate">
+        <property name="text">
+         <string>Дата Заказа</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="leDate"/>
+      </item>
+      <item row="2" column="0">
        <widget class="QLabel" name="lbID_c">
         <property name="text">
          <string>ФИО Клиента </string>
@@ -50,28 +63,6 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="leFio_Emp"/>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="leOrder_number"/>
-      </item>
-      <item row="5" column="1">
-       <widget class="QLineEdit" name="leDate"/>
-      </item>
-      <item row="3" column="1">
-       <widget class="QLineEdit" name="lePay"/>
-      </item>
-      <item row="4" column="1">
-       <widget class="QLineEdit" name="leSum"/>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="lbID_E">
-        <property name="text">
-         <string>ФИО Сотрудника</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
        <widget class="QLineEdit" name="leFio_client"/>
       </item>
       <item row="3" column="0">
@@ -81,6 +72,9 @@
         </property>
        </widget>
       </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lePay"/>
+      </item>
       <item row="4" column="0">
        <widget class="QLabel" name="lbSum">
         <property name="text">
@@ -88,12 +82,8 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="lbDate">
-        <property name="text">
-         <string>Дата Заказа</string>
-        </property>
-       </widget>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="leSum"/>
       </item>
      </layout>
     </widget>

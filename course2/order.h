@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QSqlDatabase>
 #include <QLineEdit>
+#include "order_product.h"
 
 namespace Ui {
 class order;
@@ -15,6 +16,7 @@ class order : public QDialog
 
 public:
     explicit order(QWidget *parent = nullptr);
+    QString currentId;
     ~order();
 private slots:
 
@@ -32,11 +34,11 @@ private:
     Ui::order *ui;
     QSqlDatabase dbconn;
     QString tableName= "orders_view";
-    //QStringList fieldNames= { "order_number","order_date", "client_id", "emp_id", "order_pay" };
     QList<QWidget*> fieldWidgets;
     QStringList fieldNames= { "order_number","order_date", "client_fio", "emp_fio", "order_pay" };
+
+
 
 };
 
 #endif
-

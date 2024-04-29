@@ -1,7 +1,6 @@
 #ifndef ORDER_NEW_H
 #define ORDER_NEW_H
 
-
 #include <QDialog>
 #include <QSqlDatabase>
 #include <QLineEdit>
@@ -19,21 +18,26 @@ public:
     explicit order_new(QWidget *parent = nullptr);
     ~order_new();
 
- private slots:
+private slots:
+
     void dbconnect();
     void selectAll();
+   //  void add();
 
+   //  void del();
+    void edit();
     void on_twOrg_itemSelectionChanged();
-
+ void remove();
     void back();
-
 
 private:
     Ui::order_new *ui;
     QSqlDatabase dbconn;
-    QString tableName= "ClientOrder_view";
-    QStringList fieldNames= { "order_number", "client_fio", "employee_fio",  "payment_status", "order_total", "order_date" };
+    QString tableName= "orders_view";
     QList<QWidget*> fieldWidgets;
+    QStringList fieldNames= { "order_number","order_date", "client_fio", "emp_fio", "order_pay" };
+
 };
 
-#endif // CLIENT_H
+#endif
+

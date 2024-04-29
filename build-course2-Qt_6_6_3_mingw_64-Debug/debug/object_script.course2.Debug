@@ -1,3 +1,4 @@
+debug/add_product.o
 debug/admin.o
 debug/client.o
 debug/clientorder.o
@@ -8,7 +9,10 @@ debug/functions.o
 debug/main.o
 debug/mainwindow.o
 debug/order.o
+debug/order_product.o
 debug/product.o
+debug/stock.o
+debug/moc_add_product.o
 debug/moc_admin.o
 debug/moc_client.o
 debug/moc_clientorder.o
@@ -16,4 +20,6 @@ debug/moc_company.o
 debug/moc_employee.o
 debug/moc_mainwindow.o
 debug/moc_order.o
+debug/moc_order_product.o
 debug/moc_product.o
+debug/moc_stock.o

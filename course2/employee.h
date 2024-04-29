@@ -32,10 +32,8 @@ private slots:
 private:
     Ui::employee *ui;
     QSqlDatabase dbconn;
-    QString tableName= "Employee";
-    QString tableName_view = "Employee_view";
-    QStringList fieldNames= { "emp_ID","emp_fio", "company_id" };
-    QStringList fieldNames_view= { "emp_ID","emp_fio", "company_name" };
+    QString tableName = "Employee_view";
+    QStringList fieldNames= { "emp_ID","emp_fio", "company_name" };
     QList<QWidget*> fieldWidgets;
 };
 

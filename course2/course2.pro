@@ -11,6 +11,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    add_product.cpp \
     admin.cpp \
     client.cpp \
     clientorder.cpp \
@@ -21,9 +22,12 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     order.cpp \
-    product.cpp
+    order_product.cpp \
+    product.cpp \
+    stock.cpp
 
 HEADERS += \
+    add_product.h \
     admin.h \
     client.h \
     clientorder.h \
@@ -33,9 +37,12 @@ HEADERS += \
     functions.h \
     mainwindow.h \
     order.h \
-    product.h
+    order_product.h \
+    product.h \
+    stock.h
 
 FORMS += \
+    add_product.ui \
     admin.ui \
     client.ui \
     clientorder.ui \
@@ -43,7 +50,9 @@ FORMS += \
     employee.ui \
     mainwindow.ui \
     order.ui \
-    product.ui
+    order_product.ui \
+    product.ui \
+    stock.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

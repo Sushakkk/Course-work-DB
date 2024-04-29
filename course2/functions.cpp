@@ -66,13 +66,23 @@ void clearComboBoxes(const QList<QWidget*> &fieldWidgets) {
 
 
 
+
+
 void insert_ComboBoxFro(QTextEdit *teResult, QSqlDatabase &dbconn, QComboBox *comboBox, const QString &tableName, const QPair<QString, QString> &columns, int count) {
     dbconnect_f(dbconn, teResult);
     comboBox->clear(); // Очищаем содержимое комбобокса
 
-    // Формируем SQL-запрос для извлечения значений из указанных столбцов с сортировкой по первому параметру
-    QString queryStr = QString("SELECT %1, %2 FROM %3 ORDER BY %1").arg(columns.first, columns.second, tableName);
-    qDebug() << "Query: " << queryStr; // Отладочное сообщение для проверки запроса
+    QString queryStr; // Объявляем переменную queryStr здесь
+
+    if(count==0){
+        queryStr = QString("SELECT %1 FROM %2 ORDER BY %1").arg(columns.first, tableName);
+        qDebug() << "Query: " << queryStr; // Отладочное сообщение для проверки запроса
+    }
+    else{
+        // Формируем SQL-запрос для извлечения значений из указанных столбцов с сортировкой по первому параметру
+        queryStr = QString("SELECT %1, %2 FROM %3 ORDER BY %1").arg(columns.first, columns.second, tableName);
+        qDebug() << "Query: " << queryStr; // Отладочное сообщение для проверки запроса
+    }
 
     // Выполняем запрос к базе данных
     QSqlQuery query(dbconn);
@@ -84,17 +94,19 @@ void insert_ComboBoxFro(QTextEdit *teResult, QSqlDatabase &dbconn, QComboBox *co
     // Добавляем данные из результатов запроса в комбобокс
     while (query.next()) {
         if(count==2){
-        QString value = query.value(0).toString() + "  |  " + query.value(1).toString();
-            comboBox->addItem(value);}
+            QString value = query.value(0).toString() + "  |  " + query.value(1).toString();
+            comboBox->addItem(value);
+        }
+        else if (count==0){
+            QString value = query.value(0).toString();
+            comboBox->addItem(value);
+        }
         else{
             QString value = query.value(1).toString();
             comboBox->addItem(value);
         }
     }
 }
-
-
-
 
 
 
@@ -186,7 +198,7 @@ void selectAll_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *twOrg,
             QString fieldName = fieldNames.at(j);
             QTableWidgetItem *item = new QTableWidgetItem();
             // Check if the field contains the word "total" and is numeric
-            if (fieldName.contains("total", Qt::CaseInsensitive) &&
+            if (fieldName.contains("sum", Qt::CaseInsensitive) &&
                 (query.record().field(fieldName).type() == QVariant::Double ||
                  query.record().field(fieldName).type() == QVariant::Int ||
                  query.record().field(fieldName).type() == QVariant::LongLong))

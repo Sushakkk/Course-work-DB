@@ -21,7 +21,7 @@ employee::employee(QWidget *parent)
     connect(ui->btnBack, SIGNAL(clicked(bool)), this, SLOT(back()));
 
     QTimer::singleShot(0, this, &employee::selectAll);
-    QStringList columnNames = { "ID", "Name", "INN", "Requisites" };
+    QStringList columnNames = { "ID", "ФИО", "Название Компании" };
     Table(ui->twOrg, columnNames);
 
 
@@ -58,7 +58,7 @@ void employee::dbconnect()
 void employee::selectAll()
 {
 
-    selectAll_f(dbconn, ui->teResult, ui->twOrg, tableName_view, fieldNames_view);
+    selectAll_f(dbconn, ui->teResult, ui->twOrg, tableName, fieldNames);
 }
 
 

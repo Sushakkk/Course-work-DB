@@ -15,11 +15,11 @@ ClientOrder::ClientOrder(QWidget *parent)
 
     QTimer::singleShot(0, this, &ClientOrder::selectAll);
 
-    QStringList columnNames = { "Номер Заказа", "ФИО Клиента", "ФИО Сотрудника", "Оплата", "Сумма заказа", "Дата" };
+    QStringList columnNames = { "Номер Заказа", "Дата", "ФИО Клиента", "Оплата", "Сумма заказа" };
     Table(ui->twOrg, columnNames);
 
 
-    fieldWidgets = {ui->leOrder_number, ui->leFio_client, ui->leFio_Emp, ui->lePay, ui->leSum, ui->leDate};
+    fieldWidgets = {ui->leOrder_number,ui->leDate, ui->leFio_client, ui->lePay, ui->leSum};
     for (auto widget : fieldWidgets) {
         if (auto lineEdit = qobject_cast<QLineEdit*>(widget)) {
             lineEdit->setReadOnly(true);

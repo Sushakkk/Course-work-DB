@@ -27,6 +27,10 @@ private slots:
 
     void on_btnEmp_clicked();
 
+    void on_btnStock_clicked();
+
+    void on_btnOrder_product_clicked();
+
 private:
     Ui::admin *ui;
 };

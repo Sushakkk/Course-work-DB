@@ -23,7 +23,7 @@ public:
     {
         if (product->objectName().isEmpty())
             product->setObjectName("product");
-        product->resize(905, 686);
+        product->resize(1066, 796);
 
         retranslateUi(product);
 

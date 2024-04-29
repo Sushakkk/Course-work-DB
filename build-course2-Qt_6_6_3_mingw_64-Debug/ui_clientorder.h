@@ -30,17 +30,15 @@ public:
     QFrame *frame;
     QGridLayout *gridLayout;
     QLabel *lbNumber;
-    QLabel *lbID_c;
-    QLineEdit *leFio_Emp;
     QLineEdit *leOrder_number;
+    QLabel *lbDate;
     QLineEdit *leDate;
-    QLineEdit *lePay;
-    QLineEdit *leSum;
-    QLabel *lbID_E;
+    QLabel *lbID_c;
     QLineEdit *leFio_client;
     QLabel *lbPay;
+    QLineEdit *lePay;
     QLabel *lbSum;
-    QLabel *lbDate;
+    QLineEdit *leSum;
     QTableWidget *twOrg;
     QFrame *frame_4;
     QPushButton *btnBack;
@@ -66,60 +64,50 @@ public:
 
         gridLayout->addWidget(lbNumber, 0, 0, 1, 1);
 
-        lbID_c = new QLabel(frame);
-        lbID_c->setObjectName("lbID_c");
-
-        gridLayout->addWidget(lbID_c, 1, 0, 1, 1);
-
-        leFio_Emp = new QLineEdit(frame);
-        leFio_Emp->setObjectName("leFio_Emp");
-
-        gridLayout->addWidget(leFio_Emp, 2, 1, 1, 1);
-
         leOrder_number = new QLineEdit(frame);
         leOrder_number->setObjectName("leOrder_number");
 
         gridLayout->addWidget(leOrder_number, 0, 1, 1, 1);
 
+        lbDate = new QLabel(frame);
+        lbDate->setObjectName("lbDate");
+
+        gridLayout->addWidget(lbDate, 1, 0, 1, 1);
+
         leDate = new QLineEdit(frame);
         leDate->setObjectName("leDate");
 
-        gridLayout->addWidget(leDate, 5, 1, 1, 1);
+        gridLayout->addWidget(leDate, 1, 1, 1, 1);
 
-        lePay = new QLineEdit(frame);
-        lePay->setObjectName("lePay");
+        lbID_c = new QLabel(frame);
+        lbID_c->setObjectName("lbID_c");
 
-        gridLayout->addWidget(lePay, 3, 1, 1, 1);
-
-        leSum = new QLineEdit(frame);
-        leSum->setObjectName("leSum");
-
-        gridLayout->addWidget(leSum, 4, 1, 1, 1);
-
-        lbID_E = new QLabel(frame);
-        lbID_E->setObjectName("lbID_E");
-
-        gridLayout->addWidget(lbID_E, 2, 0, 1, 1);
+        gridLayout->addWidget(lbID_c, 2, 0, 1, 1);
 
         leFio_client = new QLineEdit(frame);
         leFio_client->setObjectName("leFio_client");
 
-        gridLayout->addWidget(leFio_client, 1, 1, 1, 1);
+        gridLayout->addWidget(leFio_client, 2, 1, 1, 1);
 
         lbPay = new QLabel(frame);
         lbPay->setObjectName("lbPay");
 
         gridLayout->addWidget(lbPay, 3, 0, 1, 1);
 
+        lePay = new QLineEdit(frame);
+        lePay->setObjectName("lePay");
+
+        gridLayout->addWidget(lePay, 3, 1, 1, 1);
+
         lbSum = new QLabel(frame);
         lbSum->setObjectName("lbSum");
 
         gridLayout->addWidget(lbSum, 4, 0, 1, 1);
 
-        lbDate = new QLabel(frame);
-        lbDate->setObjectName("lbDate");
+        leSum = new QLineEdit(frame);
+        leSum->setObjectName("leSum");
 
-        gridLayout->addWidget(lbDate, 5, 0, 1, 1);
+        gridLayout->addWidget(leSum, 4, 1, 1, 1);
 
 
         gridLayout_2->addWidget(frame, 0, 0, 1, 1);
@@ -163,11 +151,10 @@ public:
     {
         ClientOrder->setWindowTitle(QCoreApplication::translate("ClientOrder", "Dialog", nullptr));
         lbNumber->setText(QCoreApplication::translate("ClientOrder", "\320\235\320\276\320\274\320\265\321\200 \320\267\320\260\320\272\320\260\320\267\320\260 ", nullptr));
+        lbDate->setText(QCoreApplication::translate("ClientOrder", "\320\224\320\260\321\202\320\260 \320\227\320\260\320\272\320\260\320\267\320\260", nullptr));
         lbID_c->setText(QCoreApplication::translate("ClientOrder", "\320\244\320\230\320\236 \320\232\320\273\320\270\320\265\320\275\321\202\320\260 ", nullptr));
-        lbID_E->setText(QCoreApplication::translate("ClientOrder", "\320\244\320\230\320\236 \320\241\320\276\321\202\321\200\321\203\320\264\320\275\320\270\320\272\320\260", nullptr));
         lbPay->setText(QCoreApplication::translate("ClientOrder", "\320\236\320\277\320\273\320\260\321\202\320\260", nullptr));
         lbSum->setText(QCoreApplication::translate("ClientOrder", "\320\241\321\203\320\274\320\274\320\260 \320\227\320\260\320\272\320\260\320\267\320\260", nullptr));
-        lbDate->setText(QCoreApplication::translate("ClientOrder", "\320\224\320\260\321\202\320\260 \320\227\320\260\320\272\320\260\320\267\320\260", nullptr));
         btnBack->setText(QCoreApplication::translate("ClientOrder", "\320\235\320\260\320\267\320\260\320\264 ", nullptr));
     } // retranslateUi
 
