@@ -11,7 +11,7 @@ Client::Client(QWidget *parent, const QString &user, bool report)
     ui->setupUi(this);
     current_user = user;
     if(current_user!="Менеджер по продажам"){
-        ui->btnReport->hide();
+        ui->Reports->hide();
     }
 
 
@@ -46,6 +46,7 @@ Client::Client(QWidget *parent, const QString &user, bool report)
 
         ui->frame_Buttons->hide();
         ui->frame_title_Form->hide();
+        ui->btnReport->hide();
 
         // Переместите объявление countQuery сюда
         QSqlQuery countQuery(dbconn); // Затем создаем объект QSqlQuery
@@ -65,6 +66,7 @@ Client::Client(QWidget *parent, const QString &user, bool report)
         ui->frame_title_Report->hide();
         ui->Full_Client->hide();
     }
+    current_report=report;
 }
 
 
@@ -132,7 +134,15 @@ void Client::edit()
 
 void Client::back()
 {
-   back_f(this,current_user);
+    if(current_report==false){
+        Client orderW(nullptr, current_user);
+        hide();
+        orderW.setModal(true);
+        orderW.exec();
+
+    }else{
+
+        back_f(this,current_user);}
 }
 
 
@@ -145,5 +155,21 @@ void Client::on_btnReport_clicked()
     hide();
     orderW.setModal(true);
     orderW.exec();
+}
+
+
+void Client::on_btnSearch_order_clicked()
+{
+    QStringList values;
+    for (const auto &widget : fieldWidgets) {
+        if (auto lineEdit = qobject_cast<QLineEdit*>(widget)) {
+            values << lineEdit->text();}}
+
+
+
+    ClientOrder ClientOrderW(nullptr, current_user, values[1]);
+    hide();
+    ClientOrderW.setModal(true);
+    ClientOrderW.exec();
 }
 

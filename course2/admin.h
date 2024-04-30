@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QSqlDatabase>
+#include "mainwindow.h"
 
 namespace Ui {
 class admin;

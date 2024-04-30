@@ -56,6 +56,7 @@ void stock::add()
 
     add_f(dbconn, fieldNames, fieldWidgets, ui->teResult, tableName);
     selectAll();
+    del();
 
 }
 
@@ -94,6 +95,6 @@ void stock::edit()
 
 void stock::back()
 {
-    goto_admin(this);
+    back_f(this,current_user);
 }
 

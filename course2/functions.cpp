@@ -111,6 +111,10 @@ void insert_ComboBoxFro(QTextEdit *teResult, QSqlDatabase &dbconn, QComboBox *co
 void back_f(QWidget *window, const QString &user) {
     if(user=="Менеджер по продажам"){
         goto_sales_manager(window);
+    }else if (user=="Сотрудник склада"){
+       stock_emp adminW;
+        window->hide(); // Скрываем текущее окно
+        adminW.exec();
     }
     else{
         goto_admin(window);
@@ -123,6 +127,8 @@ void goto_admin(QWidget *window) {
     window->hide(); // Скрываем текущее окно
     adminW.exec();
 }
+
+
 
 void goto_sales_manager(QWidget *window) {
     Sales_Manager adminW;
@@ -241,6 +247,79 @@ void selectAll_f(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *twOrg,
     twOrg->resizeColumnsToContents();
 }
 
+
+
+void selectAll_f_report(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *twOrg, const QString &tableName, const QStringList &fieldNames, const QString &fio)
+{
+    dbconnect_f(dbconn, teResult);
+    if (!dbconn.isOpen())
+    {
+        teResult->append("Error: Database connection is not open.");
+        return;
+    }
+
+    QSqlQuery query(dbconn);
+
+    QString sqlstr = QString("SELECT %1 FROM %2 where client_fio='%4' ORDER BY %3 DESC")
+                         .arg(fieldNames.join(", "))
+                         .arg(tableName)
+                         .arg(fieldNames.at(1))
+                         .arg(fio); // Первое поле для сортировки
+
+
+    if (!query.exec(sqlstr))
+    {
+        teResult->append("Error executing query:");
+        teResult->append(query.lastError().text());
+        return;
+    }
+
+    // Clear table contents
+    twOrg->clearContents();
+
+    // Resize table to fit the data
+    twOrg->setRowCount(0); // Clear rows
+    twOrg->setColumnCount(fieldNames.size());
+
+    int i = 0;
+    while (query.next())
+    {
+        twOrg->insertRow(i); // Insert new row
+        for (int j = 0; j < fieldNames.size(); ++j)
+        {
+            QString fieldName = fieldNames.at(j);
+            QTableWidgetItem *item = new QTableWidgetItem();
+            // Check if the field contains the word "total" and is numeric
+            if (fieldName.contains("sum", Qt::CaseInsensitive) &&
+                (query.record().field(fieldName).type() == QVariant::Double ||
+                 query.record().field(fieldName).type() == QVariant::Int ||
+                 query.record().field(fieldName).type() == QVariant::LongLong))
+            {
+                // Set numeric data with fixed-point notation
+                item->setText(QString::number(query.value(fieldName).toDouble(), 'f', 2));
+            }
+            else
+            {
+                // Set text data
+                item->setText(query.value(fieldName).toString());
+            }
+            twOrg->setItem(i, j, item);
+        }
+
+        // Установка выравнивания элементов таблицы
+        for (int j = 0; j < fieldNames.size(); ++j)
+        {
+            QTableWidgetItem *item = twOrg->item(i, j);
+            if (item)
+                item->setTextAlignment(Qt::AlignCenter);
+        }
+
+        i++;
+    }
+
+    // Resize columns to fit contents
+    twOrg->resizeColumnsToContents();
+}
 
 
 

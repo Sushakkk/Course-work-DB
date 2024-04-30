@@ -13,6 +13,7 @@ release/order_product.o
 release/product.o
 release/sales_manager.o
 release/stock.o
+release/stock_emp.o
 release/qrc_Recource.o
 release/moc_add_product.o
 release/moc_admin.o
@@ -27,3 +28,4 @@ release/moc_order_product.o
 release/moc_product.o
 release/moc_sales_manager.o
 release/moc_stock.o
+release/moc_stock_emp.o

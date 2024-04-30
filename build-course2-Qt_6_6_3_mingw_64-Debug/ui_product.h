@@ -57,22 +57,18 @@ public:
     QHBoxLayout *horizontalLayout_5;
     QLabel *ImgReport_2;
     QLabel *lbReport_2;
-    QFrame *frame_title_Report;
-    QHBoxLayout *horizontalLayout_3;
-    QLabel *ImgReport;
-    QLabel *lbReport;
 
     void setupUi(QDialog *product)
     {
         if (product->objectName().isEmpty())
             product->setObjectName("product");
-        product->resize(1139, 849);
+        product->resize(1591, 852);
         twOrg = new QTableWidget(product);
         twOrg->setObjectName("twOrg");
-        twOrg->setGeometry(QRect(560, 140, 571, 571));
+        twOrg->setGeometry(QRect(560, 140, 1011, 571));
         teResult = new QTextEdit(product);
         teResult->setObjectName("teResult");
-        teResult->setGeometry(QRect(10, 720, 1121, 121));
+        teResult->setGeometry(QRect(10, 720, 1561, 121));
         QSizePolicy sizePolicy(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -213,27 +209,6 @@ public:
 
         horizontalLayout_5->addWidget(lbReport_2);
 
-        frame_title_Report = new QFrame(product);
-        frame_title_Report->setObjectName("frame_title_Report");
-        frame_title_Report->setGeometry(QRect(720, 30, 274, 81));
-        frame_title_Report->setMaximumSize(QSize(274, 84));
-        frame_title_Report->setFrameShape(QFrame::StyledPanel);
-        frame_title_Report->setFrameShadow(QFrame::Raised);
-        horizontalLayout_3 = new QHBoxLayout(frame_title_Report);
-        horizontalLayout_3->setObjectName("horizontalLayout_3");
-        ImgReport = new QLabel(frame_title_Report);
-        ImgReport->setObjectName("ImgReport");
-        ImgReport->setPixmap(QPixmap(QString::fromUtf8(":/rec/img/report.png")));
-
-        horizontalLayout_3->addWidget(ImgReport);
-
-        lbReport = new QLabel(frame_title_Report);
-        lbReport->setObjectName("lbReport");
-        lbReport->setMinimumSize(QSize(184, 64));
-        lbReport->setStyleSheet(QString::fromUtf8("font: 20pt \"Segoe UI\";"));
-
-        horizontalLayout_3->addWidget(lbReport);
-
 
         retranslateUi(product);
 
@@ -256,8 +231,6 @@ public:
         lbINN_2->setText(QCoreApplication::translate("product", "\320\232\320\276\320\273\320\270\321\207\320\265\321\201\321\202\320\262\320\276", nullptr));
         ImgReport_2->setText(QString());
         lbReport_2->setText(QCoreApplication::translate("product", "\320\244\320\276\321\200\320\274\320\260 \320\242\320\276\320\262\320\260\321\200\321\213", nullptr));
-        ImgReport->setText(QString());
-        lbReport->setText(QCoreApplication::translate("product", "\320\232\320\273\320\270\320\265\320\275\321\202\321\213 \320\236\321\202\321\207\320\265\321\202", nullptr));
     } // retranslateUi
 
 };

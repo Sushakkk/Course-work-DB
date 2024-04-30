@@ -25,7 +25,8 @@ SOURCES += \
     order_product.cpp \
     product.cpp \
     sales_manager.cpp \
-    stock.cpp
+    stock.cpp \
+    stock_emp.cpp
 
 HEADERS += \
     add_product.h \
@@ -41,7 +42,8 @@ HEADERS += \
     order_product.h \
     product.h \
     sales_manager.h \
-    stock.h
+    stock.h \
+    stock_emp.h
 
 FORMS += \
     add_product.ui \
@@ -56,7 +58,8 @@ FORMS += \
     order_product.ui \
     product.ui \
     sales_manager.ui \
-    stock.ui
+    stock.ui \
+    stock_emp.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1139</width>
-    <height>849</height>
+    <width>1591</width>
+    <height>852</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <rect>
      <x>560</x>
      <y>140</y>
-     <width>571</width>
+     <width>1011</width>
      <height>571</height>
     </rect>
    </property>
@@ -28,7 +28,7 @@
     <rect>
      <x>10</x>
      <y>720</y>
-     <width>1121</width>
+     <width>1561</width>
      <height>121</height>
     </rect>
    </property>
@@ -296,56 +296,6 @@
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QFrame" name="frame_title_Report">
-   <property name="geometry">
-    <rect>
-     <x>720</x>
-     <y>30</y>
-     <width>274</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>274</width>
-     <height>84</height>
-    </size>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_3">
-    <item>
-     <widget class="QLabel" name="ImgReport">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="Recource.qrc">:/rec/img/report.png</pixmap>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="lbReport">
-      <property name="minimumSize">
-       <size>
-        <width>184</width>
-        <height>64</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Клиенты Отчет</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
   </widget>
  </widget>
  <resources>

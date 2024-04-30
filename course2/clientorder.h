@@ -14,7 +14,7 @@ class ClientOrder : public QDialog
     Q_OBJECT
 
 public:
-    explicit ClientOrder(QWidget *parent = nullptr, const QString &user = "");
+    explicit ClientOrder(QWidget *parent = nullptr, const QString &user = "",  const QString &fio = "");
     ~ClientOrder();
 private slots:
 
@@ -32,6 +32,7 @@ private:
     QStringList fieldNames= { "order_number","order_date", "client_fio",  "pay_status", "sum_order" };
     QList<QWidget*> fieldWidgets;
     QString current_user;
+    QString current_fio;
 };
 
 #endif

@@ -4,12 +4,14 @@
 #include "functions.h"
 
 
-ClientOrder::ClientOrder(QWidget *parent, const QString &user)
+
+ClientOrder::ClientOrder(QWidget *parent, const QString &user,const QString &fio)
     : QDialog(parent)
     , ui(new Ui::ClientOrder)
 {
     ui->setupUi(this);
     current_user = user;
+    current_fio=fio;
 
 
     connect(ui->btnBack, SIGNAL(clicked(bool)), this, SLOT(back()));
@@ -49,13 +51,25 @@ void ClientOrder::dbconnect()
 
 void ClientOrder::selectAll()
 {
-    selectAll_f(dbconn, ui->teResult, ui->twOrg, tableName, fieldNames);
+
+    if(current_fio!=""){
+        selectAll_f_report(dbconn, ui->teResult, ui->twOrg, tableName, fieldNames,current_fio);
+
+    }else{
+        selectAll_f(dbconn, ui->teResult, ui->twOrg, tableName, fieldNames);}
+
+
 }
 
 
 void ClientOrder::back()
-{
-    if(current_user=="Менеджер по продажам"){
+{   if(current_fio!=""){
+        Client orderW(nullptr, current_user);
+        hide();
+        orderW.setModal(true);
+        orderW.exec();
+    }
+    else if(current_user=="Менеджер по продажам"){
         order orderW(nullptr, current_user);
         hide();
         orderW.setModal(true);

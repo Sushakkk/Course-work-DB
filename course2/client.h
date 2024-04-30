@@ -33,6 +33,8 @@ private slots:
 
     void on_btnReport_clicked();
 
+    void on_btnSearch_order_clicked();
+
 private:
     Ui::Client *ui;
     QSqlDatabase dbconn;
@@ -40,6 +42,7 @@ private:
     QStringList fieldNames= { "client_ID", "client_fio", "cl_contact_inf" };
     QList<QWidget*> fieldWidgets;
     QString current_user;
+    bool current_report;
 
 };
 

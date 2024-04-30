@@ -13,6 +13,7 @@ debug/order_product.o
 debug/product.o
 debug/sales_manager.o
 debug/stock.o
+debug/stock_emp.o
 debug/qrc_Recource.o
 debug/moc_add_product.o
 debug/moc_admin.o
@@ -27,3 +28,4 @@ debug/moc_order_product.o
 debug/moc_product.o
 debug/moc_sales_manager.o
 debug/moc_stock.o
+debug/moc_stock_emp.o

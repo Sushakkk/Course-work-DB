@@ -1,7 +1,7 @@
 #include "authorization.h"
 #include "ui_authorization.h"
-#include "admin.h"
-#include "sales_manager.h"
+#include "mainwindow.h"
+
 #include <QMessageBox>
 
 Authorization::Authorization(QWidget *parent)
@@ -46,7 +46,12 @@ void Authorization::on_btnEntry_clicked()
                 sales_managerW.setModal(true);
                 sales_managerW.exec();
                 return;
-            }
+            }else if (i == 2) {
+                stock_emp stock_empW;
+                hide();
+                stock_empW.setModal(true);
+                stock_empW.exec();
+                return;}
             flag = true;
         }
     }

@@ -19,6 +19,12 @@
 #include "order_product.h"
 #include "product.h"
 
+#include "admin.h"
+#include "sales_manager.h"
+#include "stock_emp.h"
+
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;

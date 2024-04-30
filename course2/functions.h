@@ -19,7 +19,7 @@ void Table(QTableWidget *tableWidget, const QStringList &columnNames);
 void add_f(QSqlDatabase &dbconn, const QStringList &columnNames, const QList<QWidget*> &fieldWidgets, QTextEdit *teResult, const QString &tableName);
 void remove_t(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *tableWidget, const QString &tableName, int row, const QStringList &columnNames);
 
-
+void selectAll_f_report(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget *twOrg, const QString &tableName, const QStringList &fieldNames, const QString &fio);
 // void del_f(const QList<QLineEdit*> &fieldWidgets); // Объявление функции clearAndSetInputFields
 
 // void on_click_f(QTableWidget *twOrg, QTextEdit *teResult, const QStringList &fieldNames, const QList<QLineEdit*> &fieldWidgets);
