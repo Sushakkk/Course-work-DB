@@ -42,3 +42,12 @@ void Sales_Manager::on_btnClient_clicked()
     ClientW.exec();
 }
 
+
+void Sales_Manager::on_btnOrder_product_clicked()
+{
+    order_product order_productW(nullptr, current_user);
+    hide();
+    order_productW.setModal(true);
+    order_productW.exec();
+}
+

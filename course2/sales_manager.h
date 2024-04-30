@@ -22,6 +22,8 @@ private slots:
 
     void on_btnClient_clicked();
 
+    void on_btnOrder_product_clicked();
+
 private:
     Ui::Sales_Manager *ui;
     QString current_user= "Менеджер по продажам";

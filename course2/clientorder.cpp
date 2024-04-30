@@ -1,6 +1,6 @@
 #include "clientorder.h"
 #include "ui_clientorder.h"
-
+#include "mainwindow.h"
 #include "functions.h"
 
 
@@ -56,7 +56,10 @@ void ClientOrder::selectAll()
 void ClientOrder::back()
 {
     if(current_user=="Менеджер по продажам"){
-        goto_sales_manager(this);
+        order orderW(nullptr, current_user);
+        hide();
+        orderW.setModal(true);
+        orderW.exec();
     }
     else{
         goto_admin(this);

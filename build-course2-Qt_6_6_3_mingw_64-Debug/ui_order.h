@@ -30,6 +30,10 @@ class Ui_order
 {
 public:
     QGridLayout *gridLayout;
+    QFrame *frame_title_Form;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *ImgReport_2;
+    QLabel *lbReport_2;
     QFrame *frame;
     QLabel *lbID_2;
     QLabel *label_3;
@@ -43,14 +47,15 @@ public:
     QLineEdit *leDate_2;
     QComboBox *cbFio_client;
     QComboBox *cbFio_emp;
-    QFrame *frame_4;
-    QPushButton *btnBack;
     QFrame *frame_3;
     QHBoxLayout *horizontalLayout;
     QPushButton *btnAdd_2;
     QPushButton *btnEdit_2;
     QPushButton *btnDel_2;
     QPushButton *btnRemove_2;
+    QPushButton *btnReport_order;
+    QFrame *frame_4;
+    QPushButton *btnBack;
     QTextEdit *teResult;
     QTableWidget *twOrg;
 
@@ -58,9 +63,33 @@ public:
     {
         if (order->objectName().isEmpty())
             order->setObjectName("order");
-        order->resize(1396, 810);
+        order->resize(1507, 850);
         gridLayout = new QGridLayout(order);
         gridLayout->setObjectName("gridLayout");
+        frame_title_Form = new QFrame(order);
+        frame_title_Form->setObjectName("frame_title_Form");
+        frame_title_Form->setMaximumSize(QSize(291, 84));
+        frame_title_Form->setFrameShape(QFrame::StyledPanel);
+        frame_title_Form->setFrameShadow(QFrame::Raised);
+        horizontalLayout_5 = new QHBoxLayout(frame_title_Form);
+        horizontalLayout_5->setObjectName("horizontalLayout_5");
+        ImgReport_2 = new QLabel(frame_title_Form);
+        ImgReport_2->setObjectName("ImgReport_2");
+        ImgReport_2->setPixmap(QPixmap(QString::fromUtf8(":/rec/img/Form.png")));
+
+        horizontalLayout_5->addWidget(ImgReport_2);
+
+        lbReport_2 = new QLabel(frame_title_Form);
+        lbReport_2->setObjectName("lbReport_2");
+        lbReport_2->setMinimumSize(QSize(201, 64));
+        lbReport_2->setMaximumSize(QSize(201, 64));
+        lbReport_2->setStyleSheet(QString::fromUtf8("font: 20pt \"Segoe UI\";"));
+
+        horizontalLayout_5->addWidget(lbReport_2);
+
+
+        gridLayout->addWidget(frame_title_Form, 0, 0, 1, 1);
+
         frame = new QFrame(order);
         frame->setObjectName("frame");
         frame->setMinimumSize(QSize(571, 411));
@@ -118,19 +147,7 @@ public:
         verticalLayout->addWidget(cbFio_emp);
 
 
-        gridLayout->addWidget(frame, 0, 0, 1, 1);
-
-        frame_4 = new QFrame(order);
-        frame_4->setObjectName("frame_4");
-        frame_4->setMinimumSize(QSize(351, 41));
-        frame_4->setMaximumSize(QSize(351, 41));
-        frame_4->setFrameShape(QFrame::StyledPanel);
-        frame_4->setFrameShadow(QFrame::Raised);
-        btnBack = new QPushButton(frame_4);
-        btnBack->setObjectName("btnBack");
-        btnBack->setGeometry(QRect(10, 10, 111, 24));
-
-        gridLayout->addWidget(frame_4, 1, 0, 1, 1);
+        gridLayout->addWidget(frame, 1, 0, 1, 1);
 
         frame_3 = new QFrame(order);
         frame_3->setObjectName("frame_3");
@@ -159,8 +176,25 @@ public:
 
         horizontalLayout->addWidget(btnRemove_2);
 
+        btnReport_order = new QPushButton(frame_3);
+        btnReport_order->setObjectName("btnReport_order");
+
+        horizontalLayout->addWidget(btnReport_order);
+
 
         gridLayout->addWidget(frame_3, 2, 0, 1, 1);
+
+        frame_4 = new QFrame(order);
+        frame_4->setObjectName("frame_4");
+        frame_4->setMinimumSize(QSize(351, 41));
+        frame_4->setMaximumSize(QSize(351, 41));
+        frame_4->setFrameShape(QFrame::StyledPanel);
+        frame_4->setFrameShadow(QFrame::Raised);
+        btnBack = new QPushButton(frame_4);
+        btnBack->setObjectName("btnBack");
+        btnBack->setGeometry(QRect(10, 10, 111, 24));
+
+        gridLayout->addWidget(frame_4, 3, 0, 1, 1);
 
         teResult = new QTextEdit(order);
         teResult->setObjectName("teResult");
@@ -172,13 +206,13 @@ public:
         teResult->setMaximumSize(QSize(16777215, 121));
         teResult->setReadOnly(true);
 
-        gridLayout->addWidget(teResult, 3, 0, 1, 2);
+        gridLayout->addWidget(teResult, 4, 0, 1, 2);
 
         twOrg = new QTableWidget(order);
         twOrg->setObjectName("twOrg");
         twOrg->setMinimumSize(QSize(871, 561));
 
-        gridLayout->addWidget(twOrg, 0, 1, 3, 1);
+        gridLayout->addWidget(twOrg, 0, 1, 4, 1);
 
 
         retranslateUi(order);
@@ -189,6 +223,8 @@ public:
     void retranslateUi(QDialog *order)
     {
         order->setWindowTitle(QCoreApplication::translate("order", "Dialog", nullptr));
+        ImgReport_2->setText(QString());
+        lbReport_2->setText(QCoreApplication::translate("order", "\320\244\320\276\321\200\320\274\320\260 \320\227\320\260\320\272\320\260\320\267\321\213", nullptr));
         lbID_2->setText(QCoreApplication::translate("order", "\320\235\320\276\320\274\320\265\321\200 \320\267\320\260\320\272\320\260\320\267\320\260 ", nullptr));
         label_3->setText(QCoreApplication::translate("order", "\320\224\320\260\321\202\320\260 \320\227\320\260\320\272\320\260\320\267\320\260", nullptr));
         lbName_2->setText(QCoreApplication::translate("order", " \320\244\320\230\320\236 \320\232\320\273\320\270\320\265\320\275\321\202\320\260", nullptr));
@@ -197,11 +233,12 @@ public:
         cBpay->setItemText(0, QCoreApplication::translate("order", "true", nullptr));
         cBpay->setItemText(1, QCoreApplication::translate("order", "false", nullptr));
 
-        btnBack->setText(QCoreApplication::translate("order", "\320\235\320\260\320\267\320\260\320\264 ", nullptr));
         btnAdd_2->setText(QCoreApplication::translate("order", "Add", nullptr));
         btnEdit_2->setText(QCoreApplication::translate("order", "Edit", nullptr));
         btnDel_2->setText(QCoreApplication::translate("order", "Del", nullptr));
         btnRemove_2->setText(QCoreApplication::translate("order", "Remove", nullptr));
+        btnReport_order->setText(QCoreApplication::translate("order", "\320\236\321\202\321\207\320\265\321\202 \320\276 \320\267\320\260\320\272\320\260\320\267\320\260\321\205", nullptr));
+        btnBack->setText(QCoreApplication::translate("order", "\320\235\320\260\320\267\320\260\320\264 ", nullptr));
     } // retranslateUi
 
 };

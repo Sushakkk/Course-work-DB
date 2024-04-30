@@ -34,8 +34,12 @@ private slots:
 
     void on_btnAuthorization_clicked();
 
+
+    void on_btnProduct_clicked();
+
 private:
     Ui::admin *ui;
+    QString current_user= "Администратор";
 };
 
 #endif // ADMIN_H

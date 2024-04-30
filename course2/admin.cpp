@@ -16,7 +16,7 @@ admin::~admin()
 
 void admin::on_btnClient_clicked()
 {
-    Client clientW;
+    Client clientW(nullptr, current_user);
     hide();
     clientW.setModal(true);
     clientW.exec();
@@ -26,7 +26,7 @@ void admin::on_btnClient_clicked()
 
 void admin::on_btnCompany_clicked()
 {
-    company companyW;
+    company companyW(nullptr, current_user);
     hide();
     companyW.setModal(true);
     companyW.exec();
@@ -36,7 +36,7 @@ void admin::on_btnCompany_clicked()
 
 void admin::on_btnRep_ord_new_clicked()
 {
-    ClientOrder client_order;
+    ClientOrder client_order(nullptr, current_user);
     hide();
     client_order.setModal(true);
     client_order.exec();
@@ -45,7 +45,7 @@ void admin::on_btnRep_ord_new_clicked()
 
 void admin::on_btnEmp_clicked()
 {
-    employee employeeW;
+    employee employeeW(nullptr, current_user);
     hide();
     employeeW.setModal(true);
     employeeW.exec();
@@ -54,7 +54,7 @@ void admin::on_btnEmp_clicked()
 
 void admin::on_btnStock_clicked()
 {
-    stock stockW;
+    stock stockW(nullptr, current_user);
     hide();
     stockW.setModal(true);
     stockW.exec();
@@ -63,7 +63,7 @@ void admin::on_btnStock_clicked()
 
 void admin::on_btnOrder_product_clicked()
 {
-    order_product order_productW;
+    order_product order_productW(nullptr, current_user);
     hide();
     order_productW.setModal(true);
     order_productW.exec();
@@ -72,7 +72,7 @@ void admin::on_btnOrder_product_clicked()
 
 void admin::on_btnOrder_clicked()
 {
-    order orderW;
+    order orderW(nullptr, current_user);
     hide();
     orderW.setModal(true);
     orderW.exec();
@@ -85,5 +85,14 @@ void admin::on_btnAuthorization_clicked()
     hide();
     autW.setModal(true);
     autW.exec();
+}
+
+
+void admin::on_btnProduct_clicked()
+{
+    product productW(nullptr, current_user);
+    hide();
+    productW.setModal(true);
+    productW.exec();
 }
 

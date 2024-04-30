@@ -28,35 +28,34 @@ void Authorization::on_btnEntry_clicked()
     QString login = ui->cbLogin->currentText();
     QString password = ui->lePass->text();
 
-    bool flag=false;
+    bool flag = false; // Инициализация флага перед циклом
 
     for (int i = 0; i < users.size(); ++i) {
         if (login == users[i] && password == user_password[i]) {
-            user=users[i];
+            user = users[i];
             QMessageBox::information(this, "Вход", "Вы успешно вошли");
-            if(i==0){
+            if (i == 0) {
                 admin adminW;
                 hide();
                 adminW.setModal(true);
                 adminW.exec();
                 return;
-            } else if (i==1){
+            } else if (i == 1) {
                 Sales_Manager sales_managerW;
                 hide();
                 sales_managerW.setModal(true);
                 sales_managerW.exec();
-            }else{
-
-
+                return;
             }
-            flag==true;
+            flag = true;
         }
-
     }
-    if(!flag){
-        QMessageBox::warning(this, "Вход", "Пользователя не существует");
+
+    if (flag == false) {
+        QMessageBox::warning(this, "Вход", "Неправильный пароль!");
         return;
     }
+
 
 
     // admin adminW;

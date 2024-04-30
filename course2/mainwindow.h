@@ -17,6 +17,7 @@
 #include "order_new.h"
 #include "authorization.h"
 #include "order_product.h"
+#include "product.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

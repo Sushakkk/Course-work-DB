@@ -289,7 +289,8 @@ Makefile: ../course2/course2.pro ../../Qt/6.6.3/mingw_64/mkspecs/win32-g++/qmake
 		../../Qt/6.6.3/mingw_64/lib/Qt6Sql.prl \
 		../../Qt/6.6.3/mingw_64/lib/Qt6Core.prl \
 		../../Qt/6.6.3/mingw_64/lib/Qt6EntryPoint.prl \
-		../../Qt/6.6.3/mingw_64/mkspecs/features/build_pass.prf
+		../../Qt/6.6.3/mingw_64/mkspecs/features/build_pass.prf \
+		../course2/Recource.qrc
 	$(QMAKE) -o Makefile ..\course2\course2.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../Qt/6.6.3/mingw_64/mkspecs/features/spec_pre.prf:
 ../../Qt/6.6.3/mingw_64/mkspecs/features/device_config.prf:
@@ -511,6 +512,7 @@ Makefile: ../course2/course2.pro ../../Qt/6.6.3/mingw_64/mkspecs/win32-g++/qmake
 ../../Qt/6.6.3/mingw_64/lib/Qt6Core.prl:
 ../../Qt/6.6.3/mingw_64/lib/Qt6EntryPoint.prl:
 ../../Qt/6.6.3/mingw_64/mkspecs/features/build_pass.prf:
+../course2/Recource.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\course2\course2.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 

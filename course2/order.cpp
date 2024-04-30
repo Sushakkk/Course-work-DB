@@ -26,7 +26,7 @@ order::order(QWidget *parent, const QString &user)
     connect(ui->btnBack, SIGNAL(clicked(bool)), this, SLOT(back()));
 
     QTimer::singleShot(0, this, &order::selectAll);
-    QStringList columnNames = { "Номер Заказа", "Дата","ID Клиента", "ID Сотрудника", "Оплата"};
+    QStringList columnNames = { "Номер Заказа", "Дата","ФИО Клиента", "ФИO Сотрудника", "Оплата"};
     Table(ui->twOrg, columnNames);
 
 
@@ -110,7 +110,7 @@ void order::add()
 
 
 
-    order_product order_productW(nullptr, currentId);
+    order_product order_productW(nullptr,current_user, currentId);
     hide();
     order_productW.setModal(true);
     order_productW.exec();

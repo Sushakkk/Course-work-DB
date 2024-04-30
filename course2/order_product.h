@@ -16,7 +16,7 @@ class order_product : public QDialog
     Q_OBJECT
 
 public:
-    explicit order_product(QWidget *parent = nullptr, const QString &currentId = "");
+    explicit order_product(QWidget *parent = nullptr, const QString &user="", const QString &currentId = "");
     ~order_product();
 
 private slots:
