@@ -53,7 +53,7 @@ public:
     {
         if (stock->objectName().isEmpty())
             stock->setObjectName("stock");
-        stock->resize(1111, 687);
+        stock->resize(1312, 671);
         gridLayout_2 = new QGridLayout(stock);
         gridLayout_2->setObjectName("gridLayout_2");
         frame_title_Form = new QFrame(stock);
@@ -82,8 +82,6 @@ public:
 
         twOrg = new QTableWidget(stock);
         twOrg->setObjectName("twOrg");
-        twOrg->setMinimumSize(QSize(521, 531));
-        twOrg->setMaximumSize(QSize(521, 531));
 
         gridLayout_2->addWidget(twOrg, 0, 1, 4, 1);
 

@@ -6,71 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1115</width>
-    <height>665</height>
+    <width>1219</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
-   <item row="3" column="0">
-    <widget class="QFrame" name="frame_4">
-     <property name="minimumSize">
-      <size>
-       <width>351</width>
-       <height>41</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>351</width>
-       <height>41</height>
-      </size>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QPushButton" name="btnBack">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>111</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Назад </string>
-      </property>
-     </widget>
-    </widget>
-   </item>
-   <item row="0" column="1" rowspan="4">
-    <widget class="QTableWidget" name="twOrg">
-     <property name="minimumSize">
-      <size>
-       <width>541</width>
-       <height>441</height>
-      </size>
-     </property>
-    </widget>
-   </item>
+  <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0">
-    <widget class="QFrame" name="frame">
+    <widget class="QFrame" name="frame_title_Form">
      <property name="minimumSize">
       <size>
-       <width>531</width>
-       <height>326</height>
+       <width>331</width>
+       <height>84</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>531</width>
-       <height>326</height>
+       <width>331</width>
+       <height>84</height>
       </size>
      </property>
      <property name="frameShape">
@@ -79,97 +34,94 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QLabel" name="lbINN_2">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>240</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Компания</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbName_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>180</y>
-        <width>95</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>ФИО Сотрудника</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lbID_2">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>120</y>
-        <width>16</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16</width>
-        <height>16</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>ID</string>
-      </property>
-     </widget>
-     <widget class="QFrame" name="frame_2">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>70</y>
-        <width>391</width>
-        <height>241</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <widget class="QLineEdit" name="leID"/>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="leFio_emp"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QComboBox" name="cB_company"/>
-       </item>
-      </layout>
-     </widget>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="ImgReport_2">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="Recource.qrc">:/rec/img/Form.png</pixmap>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="lbReport_2">
+        <property name="minimumSize">
+         <size>
+          <width>241</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>241</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>Форма Сотрудники</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
-   <item row="4" column="0" colspan="2">
-    <widget class="QTextEdit" name="teResult">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
+   <item row="1" column="0">
+    <widget class="QFrame" name="frame_2">
+     <property name="minimumSize">
+      <size>
+       <width>481</width>
+       <height>241</height>
+      </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
-       <height>83</height>
+       <width>481</width>
+       <height>241</height>
       </size>
      </property>
-     <property name="readOnly">
-      <bool>true</bool>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="leID"/>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="cB_company"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="leFio_emp"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lbID_2">
+        <property name="text">
+         <string>Номер Сотрудника</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lbName_2">
+        <property name="text">
+         <string>ФИО Сотрудника</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lbINN_2">
+        <property name="text">
+         <string>Компания</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item row="2" column="0">
@@ -218,8 +170,74 @@
      </layout>
     </widget>
    </item>
+   <item row="3" column="0">
+    <widget class="QFrame" name="frame_4">
+     <property name="minimumSize">
+      <size>
+       <width>351</width>
+       <height>41</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>351</width>
+       <height>41</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="btnBack">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>111</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Назад </string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QTextEdit" name="teResult">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>83</height>
+      </size>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" rowspan="4">
+    <widget class="QTableWidget" name="twOrg">
+     <property name="minimumSize">
+      <size>
+       <width>541</width>
+       <height>441</height>
+      </size>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="Recource.qrc"/>
+ </resources>
  <connections/>
 </ui>

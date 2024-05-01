@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1077</width>
-    <height>668</height>
+    <width>1139</width>
+    <height>771</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -27,6 +27,56 @@
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
+    <widget class="QFrame" name="frame_title_Form">
+     <property name="maximumSize">
+      <size>
+       <width>311</width>
+       <height>81</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QLabel" name="ImgReport_2">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="Recource.qrc">:/rec/img/Form.png</pixmap>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lbReport_2">
+        <property name="minimumSize">
+         <size>
+          <width>201</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>219</width>
+          <height>64</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
+        </property>
+        <property name="text">
+         <string>Форма Компании</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
     <widget class="QFrame" name="frame">
      <property name="minimumSize">
       <size>
@@ -47,8 +97,32 @@
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lbID_2">
+        <property name="text">
+         <string>Номер Компании</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="1">
        <widget class="QLineEdit" name="leID_2"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lbName_2">
+        <property name="text">
+         <string>Название</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="leName_2"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lbINN_2">
+        <property name="text">
+         <string>ИНН</string>
+        </property>
+       </widget>
       </item>
       <item row="2" column="1">
        <widget class="QLineEdit" name="leINN_2"/>
@@ -60,78 +134,13 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="leName_2"/>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="lbID_2">
-        <property name="text">
-         <string>ID</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="lbINN_2">
-        <property name="text">
-         <string>INN</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="lbName_2">
-        <property name="text">
-         <string>Название</string>
-        </property>
-       </widget>
-      </item>
       <item row="3" column="1">
-       <widget class="QFrame" name="frame_2">
-        <property name="minimumSize">
-         <size>
-          <width>631</width>
-          <height>81</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>631</width>
-          <height>91</height>
-         </size>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <widget class="QLineEdit" name="leRec">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>20</y>
-           <width>411</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>408</width>
-           <height>51</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>611</width>
-           <height>51</height>
-          </size>
-         </property>
-        </widget>
-       </widget>
+       <widget class="QLineEdit" name="leRec"/>
       </item>
      </layout>
     </widget>
    </item>
-   <item row="0" column="1" rowspan="3">
+   <item row="1" column="1" rowspan="3">
     <widget class="QTableWidget" name="twOrg">
      <property name="minimumSize">
       <size>
@@ -141,7 +150,7 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item row="2" column="0">
     <widget class="QFrame" name="frame_3">
      <property name="maximumSize">
       <size>
@@ -184,10 +193,17 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="btnReport">
+        <property name="text">
+         <string>Отчет Прибыли</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="3" column="0">
     <widget class="QFrame" name="frame_4">
      <property name="minimumSize">
       <size>
@@ -222,7 +238,7 @@
      </widget>
     </widget>
    </item>
-   <item row="3" column="0" colspan="2">
+   <item row="4" column="0" colspan="2">
     <widget class="QTextEdit" name="teResult">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
@@ -237,6 +253,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="Recource.qrc"/>
+ </resources>
  <connections/>
 </ui>

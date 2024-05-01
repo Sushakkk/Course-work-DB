@@ -1,9 +1,7 @@
 #ifndef COMPANY_H
 #define COMPANY_H
 
-#include <QDialog>
-#include <QSqlDatabase>
-#include <QLineEdit>
+#include "mainwindow.h"
 
 namespace Ui {
 class company;
@@ -28,6 +26,8 @@ private slots:
     void on_twOrg_itemSelectionChanged();
 
     void back();
+
+    void on_btnReport_clicked();
 
 private:
     Ui::company *ui;

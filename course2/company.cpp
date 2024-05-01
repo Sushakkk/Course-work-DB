@@ -28,6 +28,19 @@ company::company(QWidget *parent, const QString &user)
     fieldWidgets = {ui->leID_2, ui->leName_2, ui->leINN_2, ui->leRec};
     ui->leID_2->setPlaceholderText("Автоматически");
 
+    if (current_user=="Финансовый менеджер"){
+            for (auto widget : fieldWidgets) {
+            if (auto lineEdit = qobject_cast<QLineEdit*>(widget)) {
+                lineEdit->setReadOnly(true);
+            } else if (auto comboBox = qobject_cast<QComboBox*>(widget)) {
+                comboBox->setEnabled(true); // или comboBox->setEditable(false), если хотите, чтобы он был только для чтения
+            }
+        }
+    }else{
+        ui->btnReport->hide();
+    }
+
+
 
 
 }
@@ -93,6 +106,15 @@ void company::edit()
 
 void company::back()
 {
-   goto_admin(this);
+  back_f(this,current_user);
+}
+
+
+void company::on_btnReport_clicked()
+{
+    company_profit companyW(nullptr, current_user);
+    hide();
+    companyW.setModal(true);
+    companyW.exec();
 }
 

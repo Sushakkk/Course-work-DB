@@ -93,11 +93,22 @@ void order::on_twOrg_itemSelectionChanged() {
 void order::add()
 {
 
+
+    QSqlQuery countQuery(dbconn);
+    if (!countQuery.exec(QString("SELECT COUNT(*) FROM %1").arg(tableName))) {
+        //teResult->append(countQuery.lastQuery());
+        //QMessageBox::critical(nullptr, "Error", countQuery.lastError().text());
+        return;
+    }
+
+    countQuery.next();
+    int rowCount_1 = countQuery.value(0).toInt(); // Получаем количество строк в таблице
+
     add_f(dbconn, fieldNames, fieldWidgets, ui->teResult, tableName);
     selectAll();
 
 
-    QSqlQuery countQuery(dbconn);
+
     if (!countQuery.exec(QString("SELECT COUNT(*) FROM %1").arg(tableName))) {
         //teResult->append(countQuery.lastQuery());
         //QMessageBox::critical(nullptr, "Error", countQuery.lastError().text());
@@ -108,12 +119,13 @@ void order::add()
     int rowCount = countQuery.value(0).toInt(); // Получаем количество строк в таблице
     currentId = QString::number(rowCount); // Преобразуем в строку
 
-
-
-    order_product order_productW(nullptr,current_user, currentId);
-    hide();
-    order_productW.setModal(true);
-    order_productW.exec();
+    if(rowCount==rowCount_1){
+        return;
+    }else{
+        order_product order_productW(nullptr,current_user, currentId);
+        hide();
+        order_productW.setModal(true);
+        order_productW.exec();}
 }
 
 

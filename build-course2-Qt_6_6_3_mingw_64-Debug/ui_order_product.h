@@ -29,6 +29,10 @@ class Ui_order_product
 {
 public:
     QGridLayout *gridLayout_2;
+    QFrame *frame_title_Form;
+    QLabel *ImgReport_2;
+    QLabel *lbReport_2;
+    QTableWidget *twOrg;
     QFrame *frame;
     QGridLayout *gridLayout;
     QLabel *lbID_2;
@@ -48,7 +52,6 @@ public:
     QFrame *frame_4;
     QPushButton *btnBack;
     QTextEdit *teResult;
-    QTableWidget *twOrg;
 
     void setupUi(QDialog *order_product)
     {
@@ -57,6 +60,28 @@ public:
         order_product->resize(1139, 749);
         gridLayout_2 = new QGridLayout(order_product);
         gridLayout_2->setObjectName("gridLayout_2");
+        frame_title_Form = new QFrame(order_product);
+        frame_title_Form->setObjectName("frame_title_Form");
+        frame_title_Form->setMaximumSize(QSize(421, 84));
+        frame_title_Form->setFrameShape(QFrame::StyledPanel);
+        frame_title_Form->setFrameShadow(QFrame::Raised);
+        ImgReport_2 = new QLabel(frame_title_Form);
+        ImgReport_2->setObjectName("ImgReport_2");
+        ImgReport_2->setGeometry(QRect(10, 10, 64, 64));
+        ImgReport_2->setPixmap(QPixmap(QString::fromUtf8(":/rec/img/Form.png")));
+        lbReport_2 = new QLabel(frame_title_Form);
+        lbReport_2->setObjectName("lbReport_2");
+        lbReport_2->setGeometry(QRect(80, 10, 341, 64));
+        lbReport_2->setStyleSheet(QString::fromUtf8("font: 20pt \"Segoe UI\";"));
+
+        gridLayout_2->addWidget(frame_title_Form, 0, 0, 1, 1);
+
+        twOrg = new QTableWidget(order_product);
+        twOrg->setObjectName("twOrg");
+        twOrg->setMinimumSize(QSize(561, 561));
+
+        gridLayout_2->addWidget(twOrg, 0, 1, 4, 1);
+
         frame = new QFrame(order_product);
         frame->setObjectName("frame");
         frame->setMinimumSize(QSize(335, 326));
@@ -106,7 +131,7 @@ public:
         gridLayout->addWidget(leQuantity, 3, 1, 1, 1);
 
 
-        gridLayout_2->addWidget(frame, 0, 0, 1, 1);
+        gridLayout_2->addWidget(frame, 1, 0, 1, 1);
 
         frame_3 = new QFrame(order_product);
         frame_3->setObjectName("frame_3");
@@ -136,7 +161,7 @@ public:
         horizontalLayout->addWidget(btnRemove_2);
 
 
-        gridLayout_2->addWidget(frame_3, 1, 0, 1, 1);
+        gridLayout_2->addWidget(frame_3, 2, 0, 1, 1);
 
         frame_4 = new QFrame(order_product);
         frame_4->setObjectName("frame_4");
@@ -148,7 +173,7 @@ public:
         btnBack->setObjectName("btnBack");
         btnBack->setGeometry(QRect(10, 10, 111, 24));
 
-        gridLayout_2->addWidget(frame_4, 2, 0, 1, 1);
+        gridLayout_2->addWidget(frame_4, 3, 0, 1, 1);
 
         teResult = new QTextEdit(order_product);
         teResult->setObjectName("teResult");
@@ -160,13 +185,7 @@ public:
         teResult->setMaximumSize(QSize(16777215, 83));
         teResult->setReadOnly(true);
 
-        gridLayout_2->addWidget(teResult, 3, 0, 1, 2);
-
-        twOrg = new QTableWidget(order_product);
-        twOrg->setObjectName("twOrg");
-        twOrg->setMinimumSize(QSize(561, 561));
-
-        gridLayout_2->addWidget(twOrg, 0, 1, 3, 1);
+        gridLayout_2->addWidget(teResult, 4, 0, 1, 2);
 
 
         retranslateUi(order_product);
@@ -177,6 +196,8 @@ public:
     void retranslateUi(QDialog *order_product)
     {
         order_product->setWindowTitle(QCoreApplication::translate("order_product", "Dialog", nullptr));
+        ImgReport_2->setText(QString());
+        lbReport_2->setText(QCoreApplication::translate("order_product", "\320\244\320\276\321\200\320\274\320\260 \320\227\320\260\320\272\320\260\320\267\320\260\320\275\320\275\321\213\320\265 \320\242\320\276\320\262\320\260\321\200\321\213", nullptr));
         lbID_2->setText(QCoreApplication::translate("order_product", "\320\235\320\276\320\274\320\265\321\200 \320\276\320\277\320\265\321\200\320\260\321\206\320\270\320\270", nullptr));
         lbName_2->setText(QCoreApplication::translate("order_product", "\320\235\320\276\320\274\320\265\321\200 \320\267\320\260\320\272\320\260\320\267\320\260", nullptr));
         lbINN_2->setText(QCoreApplication::translate("order_product", "\320\235\320\260\320\267\320\262\320\260\320\275\320\270\320\265 \321\202\320\276\320\262\320\260\321\200\320\260 ", nullptr));

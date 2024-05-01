@@ -6,12 +6,13 @@
 #include <QScrollArea>
 
 
-order_product::order_product(QWidget *parent, const QString &user, const QString &currentId)
+order_product::order_product(QWidget *parent, const QString &user, const QString &Id)
     : QDialog(parent)
     , ui(new Ui::order_product)
 {
     ui->setupUi(this);
     current_user = user;
+    currentId=Id;
 
 
 
@@ -121,7 +122,14 @@ void order_product::edit()
 
 void order_product::back()
 {
-    back_f(this, current_user);
+
+    if(!currentId.isEmpty()){
+        order order_productW(nullptr,current_user);
+        hide();
+        order_productW.setModal(true);
+        order_productW.exec();
+    }else{
+        back_f(this, current_user);}
 
 }
 

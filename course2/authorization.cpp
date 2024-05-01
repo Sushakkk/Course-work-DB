@@ -51,7 +51,16 @@ void Authorization::on_btnEntry_clicked()
                 hide();
                 stock_empW.setModal(true);
                 stock_empW.exec();
-                return;}
+                return;
+            }else if (i == 3) {
+                Financial_Manager stock_empW;
+                hide();
+                stock_empW.setModal(true);
+                stock_empW.exec();
+                return;
+            }
+
+
             flag = true;
         }
     }

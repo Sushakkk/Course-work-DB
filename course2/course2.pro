@@ -17,7 +17,10 @@ SOURCES += \
     client.cpp \
     clientorder.cpp \
     company.cpp \
+    company_orders_search.cpp \
+    company_profit.cpp \
     employee.cpp \
+    financial_manager.cpp \
     functions.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -35,7 +38,10 @@ HEADERS += \
     client.h \
     clientorder.h \
     company.h \
+    company_orders_search.h \
+    company_profit.h \
     employee.h \
+    financial_manager.h \
     functions.h \
     mainwindow.h \
     order.h \
@@ -52,7 +58,10 @@ FORMS += \
     client.ui \
     clientorder.ui \
     company.ui \
+    company_orders_search.ui \
+    company_profit.ui \
     employee.ui \
+    financial_manager.ui \
     mainwindow.ui \
     order.ui \
     order_product.ui \

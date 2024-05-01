@@ -4,7 +4,10 @@ release/authorization.o
 release/client.o
 release/clientorder.o
 release/company.o
+release/company_orders_search.o
+release/company_profit.o
 release/employee.o
+release/financial_manager.o
 release/functions.o
 release/main.o
 release/mainwindow.o
@@ -21,7 +24,10 @@ release/moc_authorization.o
 release/moc_client.o
 release/moc_clientorder.o
 release/moc_company.o
+release/moc_company_orders_search.o
+release/moc_company_profit.o
 release/moc_employee.o
+release/moc_financial_manager.o
 release/moc_mainwindow.o
 release/moc_order.o
 release/moc_order_product.o

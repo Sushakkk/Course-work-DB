@@ -15,6 +15,64 @@
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
+    <widget class="QFrame" name="frame_title_Form">
+     <property name="maximumSize">
+      <size>
+       <width>421</width>
+       <height>84</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="ImgReport_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>64</width>
+        <height>64</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="Recource.qrc">:/rec/img/Form.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lbReport_2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>10</y>
+        <width>341</width>
+        <height>64</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Форма Заказанные Товары</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="0" column="1" rowspan="4">
+    <widget class="QTableWidget" name="twOrg">
+     <property name="minimumSize">
+      <size>
+       <width>561</width>
+       <height>561</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
     <widget class="QFrame" name="frame">
      <property name="minimumSize">
       <size>
@@ -78,7 +136,7 @@
      </layout>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item row="2" column="0">
     <widget class="QFrame" name="frame_3">
      <property name="maximumSize">
       <size>
@@ -124,7 +182,7 @@
      </layout>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="3" column="0">
     <widget class="QFrame" name="frame_4">
      <property name="minimumSize">
       <size>
@@ -159,7 +217,7 @@
      </widget>
     </widget>
    </item>
-   <item row="3" column="0" colspan="2">
+   <item row="4" column="0" colspan="2">
     <widget class="QTextEdit" name="teResult">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
@@ -178,18 +236,10 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="1" rowspan="3">
-    <widget class="QTableWidget" name="twOrg">
-     <property name="minimumSize">
-      <size>
-       <width>561</width>
-       <height>561</height>
-      </size>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="Recource.qrc"/>
+ </resources>
  <connections/>
 </ui>

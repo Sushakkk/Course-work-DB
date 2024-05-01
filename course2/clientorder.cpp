@@ -53,9 +53,13 @@ void ClientOrder::selectAll()
 {
 
     if(current_fio!=""){
-        selectAll_f_report(dbconn, ui->teResult, ui->twOrg, tableName, fieldNames,current_fio);
+        QString str = "client_fio = '%1'";
+        str = str.arg(current_fio);
+
+        selectAll_f_report(dbconn, ui->teResult, ui->twOrg, tableName, fieldNames,str);
 
     }else{
+
         selectAll_f(dbconn, ui->teResult, ui->twOrg, tableName, fieldNames);}
 
 

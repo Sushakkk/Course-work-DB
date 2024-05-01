@@ -183,8 +183,8 @@ public:
 
         Title = new QFrame(product);
         Title->setObjectName("Title");
-        Title->setGeometry(QRect(10, 30, 661, 101));
-        Title->setMaximumSize(QSize(661, 101));
+        Title->setGeometry(QRect(10, 30, 321, 101));
+        Title->setMaximumSize(QSize(321, 101));
         Title->setFrameShape(QFrame::StyledPanel);
         Title->setFrameShadow(QFrame::Raised);
         frame_title_Form = new QFrame(Title);

@@ -115,6 +115,10 @@ void back_f(QWidget *window, const QString &user) {
        stock_emp adminW;
         window->hide(); // Скрываем текущее окно
         adminW.exec();
+    }else if (user=="Финансовый менеджер"){
+        Financial_Manager adminW;
+        window->hide(); // Скрываем текущее окно
+        adminW.exec();
     }
     else{
         goto_admin(window);
@@ -260,12 +264,39 @@ void selectAll_f_report(QSqlDatabase &dbconn, QTextEdit *teResult, QTableWidget 
 
     QSqlQuery query(dbconn);
 
-    QString sqlstr = QString("SELECT %1 FROM %2 where client_fio='%4' ORDER BY %3 DESC")
-                         .arg(fieldNames.join(", "))
-                         .arg(tableName)
-                         .arg(fieldNames.at(1))
-                         .arg(fio); // Первое поле для сортировки
+    QString sqlstr;
 
+    // Проверяем наличие поля, содержащего слово "date"
+    bool hasDateField = false;
+    for (const QString &fieldName : fieldNames) {
+        if (fieldName.contains("date", Qt::CaseInsensitive)) {
+            hasDateField = true;
+            break;
+        }
+    }
+    int dateFieldIndex = -1;
+    for (int i = 0; i < fieldNames.size(); ++i) {
+        if (fieldNames.at(i).contains("date", Qt::CaseInsensitive)) {
+            dateFieldIndex = i;
+            break;
+        }
+    }
+
+    if (hasDateField) {
+        // Если есть поле с датой, добавляем сортировку по нему
+        sqlstr = QString("SELECT %1 FROM %2 WHERE %4 ORDER BY %3 DESC")
+                     .arg(fieldNames.join(", "))
+                     .arg(tableName)
+                     .arg(fieldNames.at(dateFieldIndex))
+                     .arg(fio); // Первое поле для сортировки
+    } else {
+        // Если нет поля с датой, не добавляем сортировку
+        sqlstr = QString("SELECT %1 FROM %2 WHERE %4 ORDER BY %3")
+                     .arg(fieldNames.join(", "))
+                     .arg(tableName)
+                     .arg(fieldNames.at(0))
+                     .arg(fio); // Первое поле для сортировки
+    }
 
     if (!query.exec(sqlstr))
     {

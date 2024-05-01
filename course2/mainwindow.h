@@ -18,10 +18,12 @@
 #include "authorization.h"
 #include "order_product.h"
 #include "product.h"
-
+#include "financial_manager.h"
+#include "company_profit.h"
 #include "admin.h"
 #include "sales_manager.h"
 #include "stock_emp.h"
+#include "company_orders_search.h"
 
 
 

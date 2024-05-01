@@ -28,71 +28,66 @@ QT_BEGIN_NAMESPACE
 class Ui_employee
 {
 public:
+    QGridLayout *gridLayout_3;
+    QFrame *frame_title_Form;
     QGridLayout *gridLayout_2;
-    QFrame *frame_4;
-    QPushButton *btnBack;
-    QTableWidget *twOrg;
-    QFrame *frame;
-    QLabel *lbINN_2;
-    QLabel *lbName_2;
-    QLabel *lbID_2;
+    QLabel *ImgReport_2;
+    QLabel *lbReport_2;
     QFrame *frame_2;
     QGridLayout *gridLayout;
     QLineEdit *leID;
-    QLineEdit *leFio_emp;
     QComboBox *cB_company;
-    QTextEdit *teResult;
+    QLineEdit *leFio_emp;
+    QLabel *lbID_2;
+    QLabel *lbName_2;
+    QLabel *lbINN_2;
     QFrame *frame_3;
     QHBoxLayout *horizontalLayout;
     QPushButton *btnAdd_2;
     QPushButton *btnEdit_2;
     QPushButton *btnDel_2;
     QPushButton *btnRemove_2;
+    QFrame *frame_4;
+    QPushButton *btnBack;
+    QTextEdit *teResult;
+    QTableWidget *twOrg;
 
     void setupUi(QDialog *employee)
     {
         if (employee->objectName().isEmpty())
             employee->setObjectName("employee");
-        employee->resize(1115, 665);
-        gridLayout_2 = new QGridLayout(employee);
+        employee->resize(1219, 609);
+        gridLayout_3 = new QGridLayout(employee);
+        gridLayout_3->setObjectName("gridLayout_3");
+        frame_title_Form = new QFrame(employee);
+        frame_title_Form->setObjectName("frame_title_Form");
+        frame_title_Form->setMinimumSize(QSize(331, 84));
+        frame_title_Form->setMaximumSize(QSize(331, 84));
+        frame_title_Form->setFrameShape(QFrame::StyledPanel);
+        frame_title_Form->setFrameShadow(QFrame::Raised);
+        gridLayout_2 = new QGridLayout(frame_title_Form);
         gridLayout_2->setObjectName("gridLayout_2");
-        frame_4 = new QFrame(employee);
-        frame_4->setObjectName("frame_4");
-        frame_4->setMinimumSize(QSize(351, 41));
-        frame_4->setMaximumSize(QSize(351, 41));
-        frame_4->setFrameShape(QFrame::StyledPanel);
-        frame_4->setFrameShadow(QFrame::Raised);
-        btnBack = new QPushButton(frame_4);
-        btnBack->setObjectName("btnBack");
-        btnBack->setGeometry(QRect(10, 10, 111, 24));
+        ImgReport_2 = new QLabel(frame_title_Form);
+        ImgReport_2->setObjectName("ImgReport_2");
+        ImgReport_2->setPixmap(QPixmap(QString::fromUtf8(":/rec/img/Form.png")));
 
-        gridLayout_2->addWidget(frame_4, 3, 0, 1, 1);
+        gridLayout_2->addWidget(ImgReport_2, 0, 0, 1, 1);
 
-        twOrg = new QTableWidget(employee);
-        twOrg->setObjectName("twOrg");
-        twOrg->setMinimumSize(QSize(541, 441));
+        lbReport_2 = new QLabel(frame_title_Form);
+        lbReport_2->setObjectName("lbReport_2");
+        lbReport_2->setMinimumSize(QSize(241, 64));
+        lbReport_2->setMaximumSize(QSize(241, 64));
+        lbReport_2->setStyleSheet(QString::fromUtf8("font: 20pt \"Segoe UI\";"));
 
-        gridLayout_2->addWidget(twOrg, 0, 1, 4, 1);
+        gridLayout_2->addWidget(lbReport_2, 0, 1, 1, 1);
 
-        frame = new QFrame(employee);
-        frame->setObjectName("frame");
-        frame->setMinimumSize(QSize(531, 326));
-        frame->setMaximumSize(QSize(531, 326));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        lbINN_2 = new QLabel(frame);
-        lbINN_2->setObjectName("lbINN_2");
-        lbINN_2->setGeometry(QRect(20, 240, 56, 16));
-        lbName_2 = new QLabel(frame);
-        lbName_2->setObjectName("lbName_2");
-        lbName_2->setGeometry(QRect(10, 180, 95, 16));
-        lbID_2 = new QLabel(frame);
-        lbID_2->setObjectName("lbID_2");
-        lbID_2->setGeometry(QRect(40, 120, 16, 16));
-        lbID_2->setMaximumSize(QSize(16, 16));
-        frame_2 = new QFrame(frame);
+
+        gridLayout_3->addWidget(frame_title_Form, 0, 0, 1, 1);
+
+        frame_2 = new QFrame(employee);
         frame_2->setObjectName("frame_2");
-        frame_2->setGeometry(QRect(130, 70, 391, 241));
+        frame_2->setMinimumSize(QSize(481, 241));
+        frame_2->setMaximumSize(QSize(481, 241));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         gridLayout = new QGridLayout(frame_2);
@@ -100,32 +95,35 @@ public:
         leID = new QLineEdit(frame_2);
         leID->setObjectName("leID");
 
-        gridLayout->addWidget(leID, 0, 0, 1, 1);
-
-        leFio_emp = new QLineEdit(frame_2);
-        leFio_emp->setObjectName("leFio_emp");
-
-        gridLayout->addWidget(leFio_emp, 1, 0, 1, 1);
+        gridLayout->addWidget(leID, 0, 1, 1, 1);
 
         cB_company = new QComboBox(frame_2);
         cB_company->setObjectName("cB_company");
 
-        gridLayout->addWidget(cB_company, 2, 0, 1, 1);
+        gridLayout->addWidget(cB_company, 2, 1, 1, 1);
+
+        leFio_emp = new QLineEdit(frame_2);
+        leFio_emp->setObjectName("leFio_emp");
+
+        gridLayout->addWidget(leFio_emp, 1, 1, 1, 1);
+
+        lbID_2 = new QLabel(frame_2);
+        lbID_2->setObjectName("lbID_2");
+
+        gridLayout->addWidget(lbID_2, 0, 0, 1, 1);
+
+        lbName_2 = new QLabel(frame_2);
+        lbName_2->setObjectName("lbName_2");
+
+        gridLayout->addWidget(lbName_2, 1, 0, 1, 1);
+
+        lbINN_2 = new QLabel(frame_2);
+        lbINN_2->setObjectName("lbINN_2");
+
+        gridLayout->addWidget(lbINN_2, 2, 0, 1, 1);
 
 
-        gridLayout_2->addWidget(frame, 0, 0, 1, 1);
-
-        teResult = new QTextEdit(employee);
-        teResult->setObjectName("teResult");
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(teResult->sizePolicy().hasHeightForWidth());
-        teResult->setSizePolicy(sizePolicy);
-        teResult->setMaximumSize(QSize(16777215, 83));
-        teResult->setReadOnly(true);
-
-        gridLayout_2->addWidget(teResult, 4, 0, 1, 2);
+        gridLayout_3->addWidget(frame_2, 1, 0, 1, 1);
 
         frame_3 = new QFrame(employee);
         frame_3->setObjectName("frame_3");
@@ -155,7 +153,37 @@ public:
         horizontalLayout->addWidget(btnRemove_2);
 
 
-        gridLayout_2->addWidget(frame_3, 2, 0, 1, 1);
+        gridLayout_3->addWidget(frame_3, 2, 0, 1, 1);
+
+        frame_4 = new QFrame(employee);
+        frame_4->setObjectName("frame_4");
+        frame_4->setMinimumSize(QSize(351, 41));
+        frame_4->setMaximumSize(QSize(351, 41));
+        frame_4->setFrameShape(QFrame::StyledPanel);
+        frame_4->setFrameShadow(QFrame::Raised);
+        btnBack = new QPushButton(frame_4);
+        btnBack->setObjectName("btnBack");
+        btnBack->setGeometry(QRect(10, 10, 111, 24));
+
+        gridLayout_3->addWidget(frame_4, 3, 0, 1, 1);
+
+        teResult = new QTextEdit(employee);
+        teResult->setObjectName("teResult");
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(teResult->sizePolicy().hasHeightForWidth());
+        teResult->setSizePolicy(sizePolicy);
+        teResult->setMaximumSize(QSize(16777215, 83));
+        teResult->setReadOnly(true);
+
+        gridLayout_3->addWidget(teResult, 4, 0, 1, 2);
+
+        twOrg = new QTableWidget(employee);
+        twOrg->setObjectName("twOrg");
+        twOrg->setMinimumSize(QSize(541, 441));
+
+        gridLayout_3->addWidget(twOrg, 0, 1, 4, 1);
 
 
         retranslateUi(employee);
@@ -166,14 +194,16 @@ public:
     void retranslateUi(QDialog *employee)
     {
         employee->setWindowTitle(QCoreApplication::translate("employee", "Dialog", nullptr));
-        btnBack->setText(QCoreApplication::translate("employee", "\320\235\320\260\320\267\320\260\320\264 ", nullptr));
-        lbINN_2->setText(QCoreApplication::translate("employee", "\320\232\320\276\320\274\320\277\320\260\320\275\320\270\321\217", nullptr));
+        ImgReport_2->setText(QString());
+        lbReport_2->setText(QCoreApplication::translate("employee", "\320\244\320\276\321\200\320\274\320\260 \320\241\320\276\321\202\321\200\321\203\320\264\320\275\320\270\320\272\320\270", nullptr));
+        lbID_2->setText(QCoreApplication::translate("employee", "\320\235\320\276\320\274\320\265\321\200 \320\241\320\276\321\202\321\200\321\203\320\264\320\275\320\270\320\272\320\260", nullptr));
         lbName_2->setText(QCoreApplication::translate("employee", "\320\244\320\230\320\236 \320\241\320\276\321\202\321\200\321\203\320\264\320\275\320\270\320\272\320\260", nullptr));
-        lbID_2->setText(QCoreApplication::translate("employee", "ID", nullptr));
+        lbINN_2->setText(QCoreApplication::translate("employee", "\320\232\320\276\320\274\320\277\320\260\320\275\320\270\321\217", nullptr));
         btnAdd_2->setText(QCoreApplication::translate("employee", "Add", nullptr));
         btnEdit_2->setText(QCoreApplication::translate("employee", "Edit", nullptr));
         btnDel_2->setText(QCoreApplication::translate("employee", "Del", nullptr));
         btnRemove_2->setText(QCoreApplication::translate("employee", "Remove", nullptr));
+        btnBack->setText(QCoreApplication::translate("employee", "\320\235\320\260\320\267\320\260\320\264 ", nullptr));
     } // retranslateUi
 
 };

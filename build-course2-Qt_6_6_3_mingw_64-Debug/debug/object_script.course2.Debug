@@ -4,7 +4,10 @@ debug/authorization.o
 debug/client.o
 debug/clientorder.o
 debug/company.o
+debug/company_orders_search.o
+debug/company_profit.o
 debug/employee.o
+debug/financial_manager.o
 debug/functions.o
 debug/main.o
 debug/mainwindow.o
@@ -21,7 +24,10 @@ debug/moc_authorization.o
 debug/moc_client.o
 debug/moc_clientorder.o
 debug/moc_company.o
+debug/moc_company_orders_search.o
+debug/moc_company_profit.o
 debug/moc_employee.o
+debug/moc_financial_manager.o
 debug/moc_mainwindow.o
 debug/moc_order.o
 debug/moc_order_product.o

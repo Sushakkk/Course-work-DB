@@ -224,13 +224,13 @@
     <rect>
      <x>10</x>
      <y>30</y>
-     <width>661</width>
+     <width>321</width>
      <height>101</height>
     </rect>
    </property>
    <property name="maximumSize">
     <size>
-     <width>661</width>
+     <width>321</width>
      <height>101</height>
     </size>
    </property>
